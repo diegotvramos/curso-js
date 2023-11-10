@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Generators
+    </h1>
+</body>
+</html>
+<script>
+    // ahora vamos a ver un asintaxis mas censilla para generar iteradores, 
+    //no es mas que una funcion que permite trabajar de una manera mas amigable con la interfaz de los iteradores
+    // los Generator sirver para volver iterables  a una funcion.
+     // los GENERADORES tambien ns permiten manenar
+        // Un gnerador es convertir el codigo de una funcion en iterable
+
+    function* iterable() {//esta funcion es un generador por el (*) yo puedo acceder a la interfaz directamente equivalente a iterable[Symbol.iterator]()
+        yield "hola"// es como un return|| cuando se
+        console.log("hola consola");
+        yield "hola2"
+        console.log("Seguimos con más instrucciones de nuestro codigo");
+        yield "hola3"
+        yield "hola4"
+        //return// recuerda que en las funciones tenemos una palabra recerbada Return
+        // que lo que hace es retornar el valor de la funcion y ahi acaba, ya ignora lo demas
+    }
+    let iterador=iterable();//al ejecutar esta funcion, pues ese (*) ya me permite acceder a ese Symbol.Iterator
+    /*console.log(iterador.next());//devuelve   {value:       done:false[por que no acabó.]}
+    console.log(iterador.next());
+    console.log(iterador.next());
+    console.log(iterador.next());
+    console.log(iterador.next());*/
+    
+    // podemos usar un for.
+
+    for (const y of iterador) {// por cada yield que tengas en el iterador
+        console.log(y);
+    }
+
+    //¿Que pasa si todo los Yield de esta funcion yo los quiero recolectar en un areglo para luego trabajarlos piensen en un proceso asincrono
+    // piensen que estamos pidiendo datos a una DB o solicitando informacion a una cierta API entonces entonces tenemos que esperar a que terminen
+    // todo los YIELD pero a lo mejor el resultado de cada Yield lo guardamos en un areglo y ya despues trabajamos con esos valores
+    
+    // lo facil que es guardar en un areglo el resultado de una funcion generadora?
+
+    const arr =[...iterable()]//..spreit opereitor
+    console.log(arr);// muestra ya los resultados parciales de YIELD guardados en un arreglo
+
+
+
+    function cuadrado(valor) {
+        setTimeout(() => {
+           return console.log({valor,resultado:valor*valor}); 
+        }, Math.random()*1000);
+        // return{
+        //     valor,//indentarlo
+        //     resultado:valor*valor
+        // }
+    }
+    function* generador() {
+        console.log("inicia Generator");
+        yield cuadrado(1);// es como el aweit
+        yield cuadrado(2);
+        yield cuadrado(3);
+        yield cuadrado(4);
+        yield cuadrado(5);
+        yield cuadrado(0);
+        console.log("Termina Generator");
+    }
+    let gen = generador();
+    for (let y of gen) {// por cada yield que te encuentres en GEN
+        console.log(y);
+    }
+
+    // DEBEMOS TENER CUIDADO AL GENERAR, ya que es una asincronia no bloqueante por que se va ejecutando el YIELD
+    // SE VAN EJECUTANDO conforme van terminando.
+    // finalmente estamos teniendo una sincronia con un comportamiento no bloqueante
+    // YIELD es como un return especial por cada iteracion
+    // y para volver a una funcion un generador nomas hay que agregarle un * a lado de la palabra recervada FUNCTION
+
+</script>   

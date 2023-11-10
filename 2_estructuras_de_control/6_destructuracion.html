@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        DESESTRUCTARION EN JS.
+    </h1>
+</body>
+</html>
+<script>
+    //una nueva forma de asignar valores a arreglos y objetos{asignacion mas agil/dinamica}
+
+    const numeros=[1,2,3];//¿como guardar a variables diferentes?
+    //sin destructuacion 
+    let uno= numeros[0],
+        dos= numeros[1],
+        tres= numeros[2];
+
+        console.log(uno, dos, tres);
+    //Con Destructuracion
+    const numeross=[1,2,3];
+    const [one, two, three]= numeross;//asigno dinamicamente los valores a las variables: one, two, three
+    console.log(one, two, three);
+
+    //creamos un objeto persona
+    const persona={
+        nombre:"Diego",
+        apellido:"Ramos",
+        edad:"26"
+    }
+
+    let {nombre, apellido, edadd}=persona// dentro de el objeto Persona va ver atributos, las cuales vamos a a signar a variables // fijate que usa parentesis
+    //console.log(nombre, apellido, edad);// con eso ya logramos la Desestructuracion, he creado dinamicamente las 3 variables y le asignado las propiedades del objeto PERSONA.
+    console.log(nombre, apellido, edadd);// para que la desestructuracion funcione en los objetos es muy importante que la variable a crear sea del mismo nombre de la propiedad del objeto
+
+</script>

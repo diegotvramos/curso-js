@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Arrow Functions
+    </h1>
+</body>
+</html>
+
+<script>
+    //FUNCIONES FLECHA
+    //mas expresivo, mas sintetico, mas claro, mas entendible
+    //es una nueva forma de definir funciones anonimas. 
+    // funciones anonimas  que sean  expresadas
+    // las funciones flecha es una nueva forma de definir una funcion anonima. 
+    
+    const saludar=function(){//funcion expresada vs Declarada: a una variable le asignas una funcion anonima.
+        console.log("hola");
+    }
+    saludar(); // la invocacion debe ser despues por q es una variable 
+
+    // saludo();
+    // function saludo(params) {//Funcion Declarada. La invocacion puede ser antes
+    //     console.log("hola funcion declarada");
+    // }
+
+    // const saludame=()=> console.log("hola con arrow funcion =>"); // si soloo tiene una lina podemos quitar hasta los corchetes
+    // saludame();
+
+    // const saludame=(nombre)=> console.log(`hola ${nombre}, como estas`); 
+    // saludame("Allie");
+
+    const saludame=nombre=> console.log(`hola ${nombre}, como estas`); // podemos quitar hasta los parentesis, aun mas expresivo
+    // tiene un return implicito.
+    saludame("Allie");
+
+    // const sumar=function(a,b){
+    //     return a+b;
+    // }
+    // console.log(sumar(8,9));
+
+    const sumar=(a,b)=> a+b; // si lleva mas de un parametro ponemos parentesis. 
+    console.log(sumar(8,9));
+     
+    const funcionDeVariasLineas= ()=>{
+        console.log("uno");
+        console.log("dos");
+        console.log("tres");
+    }
+    funcionDeVariasLineas();
+
+    //donde es necesario las Arroy funcions
+    
+    const numeros=[1,2,3,4,5,100];
+
+    // numeros.forEach(function (elemento, index) {
+    //     console.log(`el elemento ${elemento} esta en la posicion ${index}`);
+    // });
+        //forEach es un metodo de LOS aRRAYS.
+    numeros.forEach((elemento, index) =>{
+        console.log(`${elemento} esta en la posicion ${index}`);
+    });
+
+    //Las Arrow function capturan el This[hace referencia al objeto o al contexto ( global, funcion, objeto, bloque de llaves)]
+
+    // function perro(params) {//funcion declarada
+    //     console.log(this);// this se vuelve el objeto window que representa la ventanan del navegador
+    // }
+    // perro();
+
+    // const perro={
+    //     nombre:"kenay",
+    //     ladrar:function(){
+    //         console.log(this); // HACE REFERENCIA AL MISMO OBJETO. 
+    //     }
+    // }
+    
+        //¿QUE ES CONTEXTO?
+     const perro={
+        nombre:"kenay",
+        ladrar:()=>{//tienen la capacidad de capturar el contexto del objeto en el que se encuentran 
+            console.log(this); // mucho cuidado al declarar metodos con arrow function en objetos literales. 
+        }// las Arrow funciotns dentro del objeto no me sirve mucho eje: 
+        // no es buena practica crear dentro de un objeto literal UN METODO apartir de una Arrow functions
+    }
+    perro.ladrar();
+
+     const perros={
+        nombre:"kenay",
+        ladrar(){ // los metododos en un objeto literal simplemente se crean así
+            console.log(this); // HACE REFERENCIA AL MISMO OBJETO. 
+        }
+    }
+    perros.ladrar();
+    
+    
+
+</script>

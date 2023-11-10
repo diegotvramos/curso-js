@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Tipos de operadores.
+    </h1>
+</body>
+</html>
+<script>
+    //Operadores
+    /*
+        Aritmeticos: +  -   *   /   %
+    */
+
+   let a=5+(5-10)*3;// por las leyes de los signos primero se resuelve multiplicaciones
+   let modulo= 100%2;//5/2; lo que hace es devolvernos el reciduo de una divicion || saca el resto o residuo de una divicio, si el residuo es 0 la divicion es exacta.
+
+
+   console.log(a);
+   console.log(modulo);
+
+
+    /*Operadores relacionales
+        >,   <,   >=,   <=,  ==,  ===,  !=, !===    */
+    
+    console.log(8>9);
+    console.log(9>8);
+    console.log(8>=9);
+    console.log(9>=8);
+    console.log(7<7);
+    console.log(7<=7);//siete es menor o igual a 7
+    /*
+    = 1 igual es asignacion de variables
+    == 2iguales  Comparacion de valores
+    === 3iguales es comparacion de tipo de dato y de valor la buena practica dice usa la comparacion triple
+    */
+    
+    // console.log(7==7);//siete es igual a site?
+    // console.log("7"==7); // hay valores en Javascript que tienden a verdadero / o false !!
+    // console.log("0"== false); // 0 es falso? si, porque ambos valores tienden a falso.
+
+    // console.log(7===7);
+    // console.log("7"===7);
+    // console.log(0===false); //En valor son iguales, pero en tipo no los son unos es numero y el otro es boolean
+
+
+    //Incremento y decremento
+
+    let i =2;
+    console.log(i++);// no imprime
+    console.log(++i);//incrementa despues imprime[Hay diferencia.]
+        // i=i+2;
+        // i+=3;// es otra forma de usar los operadore aritmeticos
+        // i*=3;
+        // i/=3;
+        // i-=3;
+
+        // Operador unario.
+        i++; // incrementa de uno en uno [usa esta]
+        i--;
+        // ++i; //no lo usen no es muy comun
+        // --i;
+        console.log(i);
+
+        //Operadores Logicos
+        /*  !    Not: Niega, es decir lo que es verdadero lo vuelve Falso y viceversa. 
+            ||  Or: Cuando tengo 2 o mas condiciones cuando por lo menos una se cumpla el Or validará.
+            &&  and: Cuando tengo 2 o mas condiciones Todas tienen q cumplirse, es decir ser verdaderas para que AND valide
+        */
+
+        console.log('************************************************************');
+        console.log(!true);
+        console.log((9===9)||(9==="9"));
+        console.log((9===9)&&(9==="9"));// todas deben complirse
+        console.log((9===9)&&("9"==="9"));
+
+</script>

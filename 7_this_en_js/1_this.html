@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        THIS.
+    </h1>
+</body>
+</html>
+<SCript>
+    //this es un objeto,hace referencia al objeto global WINDOW
+
+    console.log(this);
+    console.log(window);
+    console.log(this=== window);
+    this.nombre="Contexto Global"; //le creamos una variable al windows
+    console.log(this.nombre); // imprimimos lo que tiene la variable "nombre"
+    // creamo una funcion para imprimir ese "nombre"
+
+    function imprimir() {
+        console.log(this.nombre);
+    }
+    imprimir();
+
+
+
+    const obj={// OBJ es igual a un objeto
+        nombre:"Contexto Objeto",
+        imprimir:function () {// funcion se le asigna a funcion global 
+            console.log(this.nombre);
+        }
+    }
+    obj.imprimir();
+    //recuerda los Scopes en Js son en base a archivos o funciones 
+    {
+        //bloque
+    }
+    //THIS.NOMBRE hace referencia al contexto global, yla funcion anomima que se le asinga a la propiedad imprimir
+    // a sido creada dentro del "Contexto Objeto"
+
+    const obj2={
+        nombre:"Contexto objeto 2",
+        imprimir //¿a quien va hacer referencia? pues a la funcion de scope de ambito global. || nombre de la propiedad y nombre del valor son iguales imprimir:imprimir
+    //     imprimir:function imprimir() {
+    //     console.log(this.nombre);
+    // } es como si le pusiese de esta manera. shor hanse (simplificacion de sistaxis   ) this. nombre se encuentra en el contexto objeto 2
+    }
+    obj2.imprimir();
+
+
+
+    const obj3={
+        nombre:"Contexto Objeto 3",
+        imprimir:()=> { //arrow funcions
+            console.log(this.nombre);
+        }
+    }
+    obj3.imprimir();
+    //crea conflicto, una Arrow Function mantiene un enlace del contexto donde ha sido creado 
+    // la Arrow Function no meneja su propio Scope, el contexto de la plabra This hace que trabaje con el padre (enlasar el contexto del padre al hijo)
+    // no uses Arrow Funcions, sinó utilizes Funciones Anomimas
+    // por que las Arrows Functions no cran un Scope. mas bien obedecen 
+    // y como en este caso Obj3 ha sido creado en el contexto global nos mimprime "contexto global"
+    //
+
+
+    function Persona(nombre) { // esto es una funcion constructora
+        this.nombre=nombre;
+
+
+        // const that=this;
+        // that.nombre= nombre //ESTO LO HACIAN ANTIGUAMENTE || LO PODEMOS SOLUCIONAR CON {COOLD UPLINE Y BINE}
+
+        //return console.log(this.nombre);
+        // las funciones son cuidadanos de primer orden, sirven para crear objetos, prototipos, parametros y las podemos retornar como 
+        // el resultado de otra funcion, en el mundo del js se le conose como clausula o Closure, por que estamos envolviendo una funcion dentro de otra funcion
+        // y la estamos retornando
+
+
+        // return function () {
+        //     console.log(this.nombre); // retorna el contexto global
+        // }
+        return ()=> {
+            console.log(this.nombre);
+        }//SOLUCION
+        
+    }
+    let jon = new Persona("jon");
+    jon();  // devuelve contexto global.
+
+    //recuerden que cada funcion en JS crea un contexto, salvo las Arrow Funcions que herredan el contexto en el que han sido creados
+    // la funcion anomina crea un nuevo contexto (Scope) internamente.Quiere decir que no tiene propiedades, entonces como no tiene propiedades
+    // lo que hace es leer el this. del contexto global
+    //Creo que lo entendí a la primera. "this" hace referencia al scope donde se encuentra, las funciones anónimas crean scopes 
+    //pero las arrow-functions no y éstas últimas se brincan al scope superior para buscar la propiedad.
+</SCript>

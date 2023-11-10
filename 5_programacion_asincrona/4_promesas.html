@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Promesas:Promise
+    </h1>
+</body>
+</html>
+<script>
+    // la promesa es como un IF ELSE
+
+    function cuadradoPromise(value) {
+        if (typeof value!=="number") {
+            return Promise.reject(
+                `Error, el valor " ${value}" ingresado no es un numero`
+            );
+        }
+        return new Promise((resolve,Reject)=>{// Resolve: resuelve|| Reject:Rechaza la promesa
+            setTimeout(() => { // setInverval simula que estamos pidiendo un recurso externo. 
+            resolve({
+                value,// value:value [se simplifica gracias a que el atributo y la propiedad tiene el mismo nombre. ]
+                result:value*value
+            });// retorno positivo
+            }, 0 | Math.random()*1000);
+        });// va retornar un objeto de una instancia del objeto PROMISE y una promesa recibe una funcion [funcion declarada, anomima o arroy funcions]     
+    }
+    cuadradoPromise(0)
+    .then((obj)=>{
+        //console.log(obj);
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(1);
+    })
+    .then(obj=>{
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(2);
+    })
+    .then(obj=>{
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(3);
+    })
+    .then(obj=>{
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise("4");
+    })
+    .then(obj=>{
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        return cuadradoPromise(5);
+    })
+    .then(obj=>{
+        console.log(`Promise: ${obj.value}, ${obj.result}`);
+        console.log("FiN DE LA PROMESA");
+    })
+    .catch(err=>console.error(err)); // observa que no es un LOG. es un .ERROR. lo que significa que si hay algun error en la ejecucion esta 
+    // para y ya no se ejecuta Interesante!!
+    
+    
+    // cuando tu tienes una funcion que devuelve una promesa, tienes 2 metodos para trabajar la sincronia 
+
+    // las Promesas nos sirven cuando tenemos una concatenacion de varios procesos asincronos
+    
+    
+
+
+</script>

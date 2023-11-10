@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        call, apply, bind
+    </h1>
+</body>
+</html>
+<script>
+    // THIS hace referencia al contexto en el cual estemos ejecutando las cosas
+
+
+    //si yo necesito conservar la referencia de un Scope en particular e invocarlo en algun codigo
+    // para eso sieve CALL, APPLY, BIND
+    //
+
+    console.log(this);
+
+
+    this.lugar="Contexto Global";
+    function saludar(saludo, para) {
+        console.log(`${saludo} ${para}desde  el ${this.lugar}`);
+    }
+    saludar("hola", "kenay");
+
+    const obj={
+        lugar:"Contexto Objeto"
+    }
+    saludar.call(obj, "Hola", "Jon");
+    saludar.call(null, "Hola", "Jon");// si pones NULL pasa a contexto global
+    saludar.call(this, "Hola", "Jon");// el THIS hace referencia al contexdto global
+    saludar.apply(obj,["Adios", "Mircha"]);
+    saludar.apply(null,["Adios", "Mircha"]);
+    saludar.apply(this,["Adios", "Mircha"]);
+
+    //Las Arrou funcions no crea un scope para haci misma utiliza el scope en el que ha sido creada.
+
+
+    this.nombre="Window";
+    const persona={
+        nombre:"jon",
+        saludar:function(){
+            console.log(`Hola ${this.nombre}`);
+        }
+    }
+    persona.saludar();
+
+    const otraPersona={
+        saludar:persona.saludar.bind(this)  //enlasa el contexto 
+    }
+
+    otraPersona.saludar();
+    //cuando no tienes las bases de un lenguaje y te saltas a REACT
+
+
+    /* '.apply' y '.call' son dos métodos que se utilizan en JavaScript para cambiar el contexto de una función.
+
+
+
+La principal diferencia entre '.apply' y '.call' es cómo pasan los argumentos a la función. .apply toma dos argumentos: el primer argumento es el contexto (o el objeto al que se desea cambiar el contexto) y el segundo argumento es un arreglo de argumentos para pasar a la función. .call, por otro lado, toma un argumento de contexto y luego una lista separada por comas de argumentos para pasar a la función. */
+
+/*.bind() es un método en JavaScript que se utiliza para cambiar el contexto (o el "this" dentro) de una función. Es similar al uso de .call() y .apply(), pero tiene un comportamiento ligeramente diferente.
+
+
+
+Cuando se utiliza .bind(), se crea una nueva función con el mismo código que la función original, pero con el contexto especificado. Este nuevo objeto de función puede ser asignado a una variable y ejecutado más tarde.
+
+Además de cambiar el contexto, .bind() también permite pasar argumentos a la función cuando se crea. Estos argumentos se fijan y se pasan a la función cada vez que se llama a la función enlazada.
+
+En resumen, .bind() es una forma de crear una nueva función con un contexto específico y argumentos fijos, permitiendo una mayor flexibilidad al momento de usar las funciones y manejar los contextos.*/
+
+//FRAMEWORKK Y LIBRERIAS VAN Y BIENEN, 
+// jquery es para proyectos que siguen utilizando, {JS  avanzo tanto que js lo hace solito}
+</script>

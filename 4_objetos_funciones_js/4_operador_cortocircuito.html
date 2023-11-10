@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        El Objeto Date
+        Operadores de corto circuito.
+    </h1>
+</body>
+</html>
+<script>
+    //operador
+    //CortoCircuito OR.- cuando el valor de la izquierda en la expresion
+    //siempre puede validar a TRUE, es el valor que se cargara por defecto.
+
+    //CortoCircuito AND.- cuando el valor de la izquierda en la expresion
+    //siempre puede validar a FALSE, es el valor que se cargará por defecto
+
+    // function saludar(nombre="Desconocido"){// desconocido: es un parametro por defecto.(recomendado)
+    //     console.log(`hola ${nombre}`);
+    // }
+
+    function saludar(nombre){
+        nombre=nombre||"Desconocido___" //esto es un operador OR[cortocircuito]
+        console.log(`hola ${nombre}`);
+    }
+
+    console.log();
+
+    saludar("Diego");
+    saludar();
+
+    console.log([]||"Valor de la derecha");
+    console.log(null||"Valor de la derecha");
+    console.log(false||"Valor de la derecha");
+    console.log(-2||"Valor de la derecha");
+    console.log(0||"Valor de la derecha"); //0: tiende a falso
+
+    //Operador AND:es todo lo contrario al operador OR. 
+    // En react esos cortocircuitos son muy usados 
+    console.log(false && "Valor de la derecha");
+    console.log(0 && "Valor de la derecha");
+
+</script>

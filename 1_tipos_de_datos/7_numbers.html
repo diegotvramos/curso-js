@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Números en javascript
+    </h1>
+</body>
+</html>
+<script>
+     //en otros lenguajes hay una clasificacion de datos numéricos.
+     // en javascript solo hay números.
+
+     let a=2;
+     let b= new Number(1);//tambien lo podemos definir con su cosntructor.
+     let c= 7.19;
+     let d= 8.196565;
+     let e="5.6"///<- es un string 
+    
+
+     console.log(a,b);
+     //bayan a la documentacion de MOzilla debelopmen network
+     // y vean todo los metodos y propiedades  EJ.
+     console.log(c.toFixed(1));// redondea a un digito
+     console.log(c.toFixed(5));// esto tambien lo haces otras librerias!! imagina que
+    
+     console.log(parseInt(d));//funcion:saca la parte entera.
+     console.log(parseFloat(d));
+     console.log(typeof d, typeof e);// que tipo de dato es esta variable?
+
+     console.log(a+b);//
+     console.log(d+e);// el D es numero y el E es cadena[lo concatena]
+     console.log(d+parseInt(e)); //solucion:convertimos el string E a entero
+     console.log(d+parseFloat(e));
+     console.log(d+Number.parseInt(e));//parseInt son medotos directos del constructor NUMBER.
+     console.log(d+Number.parseFloat(e));
+
+
+</script>

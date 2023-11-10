@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        funciones asíncronas (#async - #await)
+    </h1>
+</body>
+</html>
+
+<script>
+    // lasFUNCIONES ASYNC Y AWAIT trabajan en conjunto con las Promesas. 
+
+
+    function cuadradoPromise(value) {
+        if (typeof value!=="number") {
+            return Promise.reject(
+                `Error, el valor " ${value}" ingresado no es un numero`
+            );
+        }
+        return new Promise((resolve,Reject)=>{
+            setTimeout(() => {
+            resolve({
+                value,
+                result:value*value
+            });// retorno positivo
+            }, 0 | Math.random()*1000);
+        });     
+    }
+    //funcion 
+    async function funcionAsincronaDeclarada(params) { // Funcion asincrona Declarada
+        try {
+            console.log("inicio de Async Funtion");
+            let obj= await cuadradoPromise(0); // AWAIT: vas a esperar el resultado de esta ejecucion antes de pasar a la siguiente linea y ejecutarla 
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            
+            obj= await cuadradoPromise(1);
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise(2);
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise("3");
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise(4);
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise(5);
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+
+            console.log(`Fin de Async Function`);
+        } catch (error) {
+            console.error(err);//
+        }
+    }
+
+    funcionAsincronaDeclarada();
+
+    const funcionAsincronaExpresada= async()=>{
+        try {
+            console.log("inicio de Async Funtion");
+            let obj= await cuadradoPromise(0); // AWAIT: vas a esperar el resultado de esta ejecucion antes de pasar a la siguiente linea y ejecutarla 
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            
+            obj= await cuadradoPromise(10);//AWAIT solo se puede usar si la funcion es ASYNC
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise(20);
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise(30);
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise("44");
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+            obj= await cuadradoPromise(55);
+            console.log(`Async Function:${obj.value}, ${obj.result}`);
+
+            console.log(`Fin de Async Function`);
+        } catch (error) {
+            console.error(err);//
+        }
+    }
+    funcionAsincronaExpresada();
+</script>

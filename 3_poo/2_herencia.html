@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        HERENCIA PROTOTIPICA.
+    </h1>
+</body>
+</html>
+<script>
+    // Herencia es la capacidad e poder heredar caracterirsticas de un padre a un hijo. 
+    // 
+    //FUNCION CONSTRUCTORA
+        function Animal(nombre, genero) {
+        //Atributos
+        this.nombre=nombre;
+        this.genero=genero;
+    }
+    Animal.prototype.sonar=function(){
+        console.log("hago sonidos por que estoy vivo.");
+    }
+    Animal.prototype.saludar=function() {
+        console.log(`Hola me llamo ${this.nombre}`);
+    }
+
+
+    function Perro(nombre, genero, tamaño) {
+        this.super=Animal;// invoco el constructor animal. SUPER PASA A SER UN OBJETO (instancia)
+        this.super(nombre, genero);//ejecutamos el metodo suport
+        this.tamaño=tamaño;
+        //aqui hacemos la asociacion de la herencia prototipica. 
+
+    }
+    // asignamos al prototipo de Perro que sea una instancia de animal
+
+    
+    //Perro esta heredando de animal
+    Perro.prototype = new Animal();
+    Perro.prototype.constructor= Perro;// al igualarlo al constructor se va estar jalando toda las carracteristicas de su prototipo padre
+    // que en este caso seria animal. //[ESTO ES UN CONSTRUCTOR.]
+
+
+
+    //Cuando una classe hija en la poo herreda los metodos de la clase padre 
+    //aqui hablando de los prototipos eso va a aplicar exactamente igual es decir.
+    //Perro al ya ser una clase que hereda todo lo de animal puede utilizar sus respectivos metodos como SONAR Y SALUDAR. 
+    //PODEMOS hacer una sobreescritura de los metodos del padre
+
+
+    //Sobreescritura de metodos del Prototipo padre en el hijo.
+    Perro.prototype.sonar=function (params) {
+        console.log("soy un perro y mi sonido es un ladrido");
+    }
+
+    Perro.prototype.ladrar=function(){
+        console.log("guauu guauuu !!!");
+    }
+
+    const   Snopyy = new Perro("Snoooopuyyy", "Macho","mediano"),
+            LolaBuny = new Animal("lOLA BUNYY", "hembra");
+
+            console.log(Snopyy);
+            console.log(LolaBuny);
+
+            Snopyy.saludar();
+            Snopyy.sonar();
+            Snopyy.ladrar();
+    
+            LolaBuny.saludar();
+            LolaBuny.sonar();
+
+    //esta es la manera como se da la herencia en JAVASCRIPT
+    //CREO Q ES MAS FACIL TRABAJARLO CON CLASES. 
+
+    //JS, hace que el paradigma poo la hace a partir de de los prototipos
+
+    //{AZUCAR SINTACTICA} significa una manera mas facil de escribir codigo. 
+    // no te preucupes, esa solo es la manera como funciona javascript. 
+
+</script>

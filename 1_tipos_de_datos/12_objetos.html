@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        OBJETOS
+    </h1>
+</body>
+</html>
+
+<script>
+    // puedo crear una cadena usando el costructor 
+    // en JS todo es un objeto.
+    let a = new String("Hola");
+    console.log(a);
+
+    const b={ // Es adecuedo usar CONST cuando estamos trabajando con objetos|| con const:evitamos que le asignemos otro valor
+        // al poner [] corchetes en la consola, esta me avisava que es un array vacio
+        // al poner {} llaves en la consola, esta me avisava que es un Objeto.
+    }
+    console.log(b);
+
+    //podemos crear objetos basandonos con el prototipo object. 
+    const c=new Object();// ya no es utilizado
+    console.log(c);
+
+    // un objeto es un juego de LLAVE Y VALOR
+    /*
+        DENTRO DE UN OBJETO A LA VARIABLES SE LE VAN A LLAMAR ATRIBUTOS/PROPIEDADES
+        Y A LAS FUNCIONES SE LES LLAMA METODOS()> TIENE PARENTESIS UN METODO
+    */
+    const diego={
+        nombre:"diego",
+        apellido:"ramos",
+        edad:"26",
+        pasatiempo:["correr","hacer ejercicio", "dar clases"],
+        soltero: false,
+        contacto:{
+            email:"00dramos@gmail.com",
+            twiter: "diegotvramos",
+            movil:"7650"
+        },
+        saludar:function(){
+            console.log("Hola");
+        },
+        decirMiNombre: function(){
+            console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y tengo ${this.edad} años y puedes seguirme ${this.contacto.email} en gmail`);// cuando quieras hacer uso de una propiedad dentro de un objeto || this: se refiere a una cosa
+            //this: hace referencia a este mismo objeto
+            //this: hace referencia al mismo objeto
+        }
+
+    }
+    console.log(diego);
+    //como accedemos a los valores de este objeto. 
+    console.log(diego["nombre"]);//podemos usar corchete, aunque no es muy usada
+    console.log(diego["apellido"]);
+
+    console.log(diego.nombre);//el poner PUNTO accedemos a ciertas propiedades o ATRIBUTOS/o metodos que tiene
+    console.log(diego.edad);
+    console.log(diego.pasatiempo);
+    console.log(diego.pasatiempo[1]);//cordenadas
+    diego.saludar();
+    diego.decirMiNombre();
+
+    //algunos metodos
+    console.log(Object.keys(diego));// keys: este metodo nos permite listar toda las llaves de un objeto 
+    console.log(Object.values(diego));// este metodo me muestra los valores
+    console.log(diego.hasOwnProperty("nombre"));//este metodo evalua el nombre de propiedad de un objeto/funcion.
+    console.log(diego.hasOwnProperty("nacimiento"));
+
+    // el objeto OBJECT: tiene muchas propiedades y metodos [ir a mdn mozilla development network]
+</script>

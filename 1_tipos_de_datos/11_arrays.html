@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        arrays y arreglos
+    </h1>
+</body>
+</html>
+<script>
+    // una arreglo es una coleccion de elementos 
+    const a=[];
+    const b=[1,true,"hola",["a","b","c",2,[1,2,3]]];
+    console.log(a);
+    console.log(b);
+    console.log(b.length);// es una propiedad
+
+    //los arreglos compuestos se acceden a la referncia del valor
+    console.log(b[2]);
+    console.log(b[1]);
+    console.log(b[3][2]);
+    console.log(b[3][4][0]);
+
+    const c= Array.of("X","Y","Z",8,7);// el metodo se llama OF// ademas de acceder al OBJETO Array.
+    console.log(c);
+
+    // descuento 0%
+    const d=Array(100).fill(false);// crea un arreglo de 100 posisiones y lo llena con FALSE'S
+    console.log(d);
+
+    //esto ya es antiguo ya no se trabaja así.
+    const e = new Array(1,2,3,true,false);
+    console.log(e);
+
+    const colores=["rojo", "verde", "azul"]
+    console.log(colores);
+
+    //podemos usar el METODO PUSH pra agregar nuevo elemento
+    colores.push("negro");
+    console.log(colores);
+
+    colores.pop();// el metodo pop quita los ultimos elementos
+    console.log(colores);
+
+    // LOS ARREGLOS UNA GRAN CANTIDAD DE METODOS (paradigma funcional)
+    //nos permite ejecutar  una funcion  por cada uno de los elementos que tenga mi areglo
+
+    colores.forEach(function (el,index) {// con este elemento forEach: podemos recorer el valor con el primer parametro el:element y el segundo parametro index:indice
+        console.log(`<li id="${index}"> ${el} </li>`);
+    });
+</script>

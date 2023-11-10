@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        El Objeto Date
+    </h1>
+</body>
+</html>
+<script>
+    // este objeto sirver tanto en el js de los navegadores, y en lado de los servidores
+    //Date ES UN CONSTRUCTOR. 
+
+    console.log(Date());  // Sun Aug 13 2023 21:43:01 GMT-0400 (hora de Bolivia)
+
+
+    //lo ideal es guardar en una variable la fecha
+    const fecha = new Date();
+    console.log(fecha);
+
+    console.log(fecha.getDate());//obtiene el dia del mes
+    //Dia de la semana D L M M J V -> 0 1 2 3 4 5 6 los dias de la semana los representa en un Array.
+    console.log(fecha.getDay());
+    //mes: ENE, FEB, MAR, ABR, MAY, JUN, JUL, AGO, SEP, OCT, NOB, DEC-> 0 1 2 3 4 5 6 7 8 9 10 11 12
+    console.log(fecha.getMonth());
+    //AÑO: No uses el getYear.
+    console.log(fecha.getFullYear());
+    //Hora.
+    console.log(fecha.getHours());
+    console.log(fecha.getMinutes());
+    console.log(fecha.getSeconds());
+    console.log(fecha.getMilliseconds());
+    //Hay algunos metodos que nos da la fecha Humanamente entendible.
+    console.log(fecha.toString()); 
+    console.log(fecha.toDateString());
+    //hola local
+    console.log(fecha.toLocaleString());//->13/8/2023, 22:00:11 (ES MUY DE LOS 90's eso de poner reloj en el sitio web)
+    console.log(fecha.toLocaleDateString()); //->13/8/2023 /solo la parde de la fecha
+    console.log(fecha.toLocaleTimeString());//22:02:16 -> ESTO solo muestra la hora 
+    console.log(fecha.getUTCHours());//NUESTRA ZONA HORACIA DICE QUE ESTAMOS A -4 ORAS DE LA HORA 0  QUE ESTA EN [LONDRES]
+    //HORA DEL MERIDIANO 0 HORA DE GRENDUICH
+    // aunque tu app la tenga en un server en EEUU la hora que vas a mostrar al usuario va ser la hora lacal
+    console.log(Date.now());// desde el primero de enero de 1970 famosa fecha [timestamp ] es muy utilizado cuando vas a
+    // guardar registros en una base de datos ASI SE PREPRESENTA EL TIEMPO 1691979150311
+    //"esta publicacion fe posteada hace, 3 dias hace, 4 h"
+
+    //Una libreria muy potente para el manejo de los tiempos en JS ES MOMENT JS
+
+    const cumpleDiego = new Date(1997,6,19);// mozilla developmen network
+    console.log(cumpleDiego);
+    
+
+
+
+</script>

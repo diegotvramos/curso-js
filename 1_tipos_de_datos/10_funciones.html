@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        FUNCIONES. 
+    </h1>
+</body>
+</html>
+<script>
+    //Funciones: es un bloque de codigo independiente del scope o ambito global
+    // se pueden definir una ves y se pueden ejecutar en cualquier momento 
+    // puede o no resirver parametros, puede o no devolver parametros.
+    //las funciones tambiem son objetos
+
+    //Funcion Declarada/ declaracion de funcion
+    function estoEsUnaFuncion() {
+        console.log("Uno");
+        console.log("Dos");
+        console.log("Tres");
+    }
+
+   /* //invocacion de funcion.  // se puede invocar varias veces
+    estoEsUnaFuncion();// los parentesis indican en un lenguaje de programacion, que una funcion se va ejecutar.
+    estoEsUnaFuncion();
+    estoEsUnaFuncion();
+    estoEsUnaFuncion();*/
+
+    function unaFuncionQueDevuelveValor() {
+        console.log("Uno");
+        return 19; // el return se ejecuta una sola ves lo demas lo ingnora
+        console.log("Dos");
+        console.log("Tres");
+        return "la funcion a retornado una cadena de texto"; //una funcion puede devolver cualquier tipo de dato ya sea primitivo o compuesto 
+    }/*
+    let valorDeFuncion = unaFuncionQueDevuelveValor();
+    console.log(valorDeFuncion);*/
+
+    // como hacer para que una funcion resiva valores?
+
+    function saludar(nombre, edad) {// nombre, edad: son parametros
+        console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años`);//interpolamos usamos back tick
+    }
+    saludar("Kenay", 7);//invocamos
+    
+
+    function saludar(nombre="desconocido", edad=0) {// definimos parametros po defecto
+        console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años`);
+    }
+    saludar();
+
+    // Funciones Declaradas Vs Funciones expresadas
+    // javascript es un lenguaje interpretado, es decir no necesita una fase de conpilacion.
+    // independiendemente de donde declares la funcion, Javascript va hacer un Joistins osea lo va leer primero, despues va ejecutar la
+    //invocacion , Javascrip ordena Variables y funciones primero.
+    funcionDeclarada();
+    function funcionDeclarada(params) { 
+        console.log("Esto es una funcion declarada, puede invocarse en cualquier parte de nuestro codigo,incluso antes de que la funcion sea declarada");
+    }
+    //funcionExpresada(); no puedes acceder por q no la inicializaste
+    funcionDeclarada();
+
+
+    //Funcion Anonima, es una funcion sin nombre.
+    // o tambien !! const funcionExpresada= ()=> { [es una arow function]
+    const funcionExpresada= function () {// lo asignamos a una variable
+        console.log("esto es una funcion expresada, es decir una funcion que se le ha asignado como valor a una variable, si invocamos esta funcion antes de su definicion, JavaScrip nos dirá... 'Uncaught ReferenceError: Cannot access 'funcionExpresada' before initialization'");
+    }
+    funcionExpresada();
+
+    //se puede mandar parametros??
+</script>

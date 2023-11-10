@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        CONDICIONALES EN JS
+    </h1>
+</body>
+</html>
+<script>
+    //ESTRUCTURA DE CONTROL.
+    /*
+        ifELSE
+    */
+   let edad=35;
+
+   if (edad>17) {// usamos el operador relacional (edad>=17)error de logica
+    console.log("eres mayor de edad");
+   } else {
+    console.log("eres menor de edad");
+   }
+
+   if (edad<=17) {// estoy incluyendo dentro de la logica de la condicion el valor contra el que comparo
+    console.log("eres menor de edad");
+   } else {
+    console.log("eres mayor de edad");
+   }
+
+   //IF ELSE IF ELSE
+   /*   Dejame dormir 0hrs-5hrs
+        Buenos dias 6hrs-11hrs
+        Buenas tardes 12hrs -18hrs
+        Buenas noches 19hrs -23hrs
+   */
+   // IF ANIDADO.
+   let hora =12;
+   if (hora>=0 && hora<=5) {
+    console.log("dejame dormir");
+   }else if (hora>=6 && hora<=11) {
+    console.log("buenos días");
+   }else if (hora>=12 && hora<=18) {
+    console.log("buenas tardes");
+   }else{
+    console.log("buenas noches");
+   }
+
+   //OPERDOR TERNARIO(condicion)? verdadero:falsa  la versin simplificada de if else
+
+   console.log("operador ternario");
+   let eresMayor=(edad>=18)
+   ?"Eres mayor de edad":"Eres menor de edad"
+   console.log(eresMayor);
+
+   //switch-case
+   /*
+        lunes = 1
+        marter = 2
+        miercoles = 3
+        jueves = 4
+        viernes = 5
+        sabado = 6
+        domingo = 7
+   */
+   let dia= 20
+   switch (dia) {// variable a evaluar
+    case 0:
+        console.log("Domingo");
+        break; // con esta palabra recerbasa se sale
+    case 1:
+        console.log("Lunes");
+        break;
+    case 2:
+        console.log("Martes");
+        break;
+    case 3:
+        console.log("Miercoles");
+        break;
+    case 4:
+        console.log("Jueves");
+        break;
+    case 5:
+        console.log("Viernes");
+        break;
+    case 6:
+        console.log("Sabado");
+        break;
+    default:
+        console.log("el Dia no existe");
+        break;
+   }
+
+</script>

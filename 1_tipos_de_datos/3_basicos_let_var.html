@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Javascript</title>
+</head>
+<body>
+    <h1>
+        Fundamentos de Javascript.
+    </h1>
+    <script>
+        
+        console.log(hola);
+        //ambito de bloque
+        if (true) {
+            let hi= "variable let";
+            var hola="hola mundoooo";
+        }
+        //console.log(hi);
+        console.log(hola);
+
+        var hola="Hola Mundo"; //ambito global(lo define en el escope global)
+        let hello= "hello world";// hambito de bloque (BUENA PRACTICA)
+        console.log(hola);
+        console.log(hello);
+        console.log(window);
+        console.log(window.hola);
+        console.log(window.hello);
+        //javascrip no tenia hambito de bloque, como no hay funciones la declaraba en el hambito global
+        //si estabas acostumbrado a declarar dentro de un bloque if o etc se definia como global (funcion o global no habia bloque[if])
+
+        //console.log //me permite imprimir en la consola
+        //ambito de bloque
+        console.log("********VAR*********"); // AL CREAR CON VAR SE GUARDA EN EL OBJETO WINDOW
+        var musica="rock";
+        console.log("Variable musica antes del bloque", musica);
+        {
+            var musica= "pop";
+            console.log("Variable musica dentro del bloque", musica);
+        }
+
+            console.log("Variable musica despues  del bloque", musica);
+
+        console.log("********LET*********");
+            let musica2="rock";
+        console.log("Variable musica antes del bloque", musica2);
+        {
+            let musica2= "pop";
+            console.log("Variable musica dentro del bloque", musica2);
+        }
+
+            console.log("Variable musica despues  del bloque", musica2);
+    </script>
+    </script>
+</body>
+</html>

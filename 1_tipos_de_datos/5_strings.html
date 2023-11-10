@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        CADENAS DE TEXTOS STRTINGS
+    </h1>
+
+</body>
+<script>
+    let nombre="dieGO"; //comilas dobles o simples no impor ta. 
+    let apellido='Ramos';
+    /* una de la manera formal de declarar es con su constructor STRING.
+    NEW: me va permitir declarar un objeto nuevo de un cierto tipo de dato !!*/
+    let saludo=new String ("Hola Mundo");
+    // es demaciado formal y nadie la utiliza. 
+
+    let lorem= "         lorem     lorem lorem lorem lorem lorem, lorem lorem lorem lorem lorem lorem, lorem lorem lorem lorem "    
+    console.log(nombre, apellido, saludo);
+    // para saber cuantos caracteres tiene cada una de estas cadenas
+    console.log(nombre.length, apellido.length, saludo.length);
+
+    //que pasa si quieres forzar al usuario a que solo escriba con minuscalas EJ: para correo electronico. 
+    //USAMOS UN METODO
+    console.log(nombre.toLowerCase(), apellido.toUpperCase(), saludo);
+    // PARA BUSCAR UNA PALABRA
+    console.log(lorem.includes("lorem"));
+
+    //EM METODO TRIM quita los espacios en blanco 
+    console.log(lorem.trim());
+    //IMAGINA QUE debemos separar cada espacio en blanco para llenarlo a un array.
+    console.log(lorem.split(" "), lorem.split(","));
+
+    //cada tipo de DATO en javascript tiene su propias propiedades(caracteristicas, atributos) y sus apropios 
+    //metodos(acciones o funciones que me van a permitir ejecutar algo)
+    
+</script>
+</html>

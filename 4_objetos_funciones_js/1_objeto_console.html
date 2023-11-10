@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        EL OBJETO CONSOLE.
+    </h1>
+</body>
+</html>
+<script>
+    //Console: es un objeto que ya reconoce javascript
+    console.log(console);// con esto vemos caracteristicas, propiedades, metodos
+    console.error("esto es un error ");
+    console.warn("esto es un aviso");// eje. facebook consola
+    console.log("es un registro de lo que ha pasado en nuestra aplicacion ");
+
+    let nombre="diego",
+        apellido="ramos",
+        edad=35;
+
+    console.log(nombre);
+    console.log(apellido);
+    console.log(35);
+    console.log(nombre, apellido, edad);
+    console.log(`Hola mi nombre es ${nombre} ${apellido} y tengo ${edad}`);//ante la consola esto es un texto.
+    //comodines
+    console.log(`Hola mi nombre es %s %s y tengo %d años`, nombre, apellido,edad);
+    console.clear();// limpia la consola
+    console.log(window);// ojeto global, que representa la ventana del navegador
+    console.log(document);// es la representacion del documento html.
+    console.dir(window);// lo muestra como un Objeto.
+
+    console.clear();
+
+    console.group("los curso en Youtube");
+    console.log("curso de php");
+    console.log("curso de nodeJs");
+    console.log("Curso Flexbox");
+    console.groupEnd(); 
+
+    console.groupCollapsed("los curso en Youtube");
+    console.log("curso de php");
+    console.log("curso de nodeJs");
+    console.log("Curso Flexbox");
+    console.groupEnd(); // de chrome. 
+    console.clear();
+
+    //para analizar un objeto.
+    
+    console.table(Object.entries(console).sort);//constructor Object. y el metodo entries (sort, es para odenar asendentement)
+
+    const numeros =[1,2,3,4,5],
+            vocales =["a","e","i","o","u"]
+            //yo quiero que esten en una tablita. 
+    console.table(numeros)
+    console.table(vocales)
+
+    // y en los objetos
+    const perro ={
+        nombre:"Boni",
+        raza:"Boxer",
+        color:"café"
+    }
+    console.table(perro);
+    //si yo quiero saber el tiempo exacto que tarda un peticion 
+    // usamos el metodo time de la consola. y(otros:temporizadores)
+    console.clear();
+
+
+    console.time("Cuanto tiempo tarda mi codigo? "); // esto es como una etiqueta que lo pones. 
+        const arreglo =Array(1000000); // ya no usamos NEW array
+        for (let index = 0; index < arreglo.length; index++) {
+            arreglo[index]= index;    
+        }
+        // para cronometrar
+    console.timeEnd("Cuanto tiempo tarda mi codigo? ");// es como una etiqueta
+    //console.log(arreglo);
+    console.clear()
+
+    //cuantas veces se ejecutado CIRTO FRAGMENTO DE CODIGO.
+    //cuantas veces el usuario ejecuto tal evento al darle click a un boton
+    // o cuantas conexxiones uso
+
+    for (let index = 0; index <= 100; index++) {
+            console.count("codigo for");// banderea o la etiqueta [cuenta numero de ejecuciones. MUY UTIL]
+            console.log(index);   
+        }
+        console.clear()
+    // Hay librerias para hacer testing o hacer pruebas a nuestro codigo. pues el Objeto console tiene
+    //un metodo que se llama 
+
+    let     x = 5,
+            y=2, 
+            pruebaXY="se espera que X siempre sea menor que Y";
+
+    console.assert(x<y,{x,y,pruebaXY}); // NO PASA NADA SI LA PRUEBA SALE BIEN
+        //LIBRERIAS DE PRUEBAS UNITARIAS EN JS: yes, jasmis moca
+
+
+</script>

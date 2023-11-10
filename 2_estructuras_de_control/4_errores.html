@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Manejo de Errores 
+    </h1>
+</body>
+</html>
+<script>
+    //try catch
+    //es una estructura que permite evaluar ciertos fragmentos de codigo y cuando aya algun mensaje de error 
+    //entonces se va capturar en la parte del catch
+    //No solo sirve para errores de sintaxis sino tambien para errores de formularios
+
+    try {
+        console.log("en el Try se agrega el codigo a evaluar")
+        noExiste;// encuentra el error y se sale a Catch
+        console.log("segundo mensaje en el Try")
+    } catch (error) {//si no hay error no entra en el Try
+        console.log("Captura cualquier error lanzado en el Try");
+
+        //mandamos a imprimir ese error
+        console.log(error); // no me muestra en color Rojo en el navegador. 
+    }finally{// aya o no se ejecuta al final[YA NO SE USA?]
+        console.log("el bloque Finally se ejecutará siempre al final de un bloque Try Catch")
+    }
+
+
+    try {
+        let numero= "y";
+        if (isNaN(numero)) {
+            throw new Error("El caracter introducido no es un Numero")// sino sabes el error en especifico usa ERROR.
+        }
+        console.log(numero*numero);
+    } catch (error) {
+         console.log(`Se produjo el siguiente error: ${error}` );
+    }
+</script>

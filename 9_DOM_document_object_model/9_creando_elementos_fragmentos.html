@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB API'S</title>
+    <style>
+        :root{
+            --yellow-color:#f7df1e;
+            --dark-color:#222;
+                    .cards{
+                    border: thin solid var(--dark-color);
+                    padding: 1rem;
+                    }
+                    .card{
+                    display: inline-block;
+                    background-color: var(--dark-color);
+                    color: var(--yellow-color);
+                    }
+                    .card figcaption{
+                    padding: 1rem;
+                    }
+                    .rotate-45{
+                    transform: rotate(45deg);
+                    }
+                    .rotate-135{
+                    transform: rotate(135deg);
+                    }
+                    .opacity-80{
+                    opacity: .8;
+                    }
+                    .sepia{
+                    filter: sepia(1);
+                    }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        WEB API's  ads
+    </h1>
+    <H2>
+        DOM: Document Object Model (manipulacion de html mediante JS)
+    </H2>
+    <h2>
+        CSSOM: CSS Object Model (es la manipulacion de CSS mediante JS)
+    </h2>
+    <h2>
+        BOM: Browser Object Model(Cada navegador tiene su forma de manejar ciertas cosas)
+    </h2>
+    <h2>
+        WEB APIs (ei pi ai)
+    </h2>
+    <ul>
+        <li>Eventos</li>
+        <li>Forms</li>
+        <li>AJAX - Fetch</li>
+        <li>History</li>
+        <li>Web Storage</li>
+        <li>Geolocation</li>
+        <li>Drag & Drop</li>
+        <li>Indexed DB</li>
+        <li>Canvas</li>
+        <li>MatchMedia</li>
+        <li>etc</li> 
+    </ul>
+    <br>
+    <hr>
+    <br>
+    <h3>Manejo del DOM</h3>
+    <p id="que-es">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+         Nulla ut magnam autem hic veritatis ducimus. Ducimus
+          doloribus provident soluta veritatis quisquam ullam 
+          enim, cum cupiditate, minima molestiae deleniti, pariatur
+           distinctio.
+    </p>
+    <!-- p#que-es -->
+    <nav id="menu">
+        <ul>
+            <li><a href="#">Seccion 1</a></li>
+            <li><a href="#">Seccion 2</a></li>
+            <li><a href="#">Seccion 3</a></li>
+            <li><a href="#">Seccion 4</a></li>
+            <li><a href="#">Seccion 5</a></li>
+        </ul>
+    </nav>
+
+    <input type="text" name="nombre" placeholder="Nombre">
+    <a class="link-dom" href="5_estilos_variables_css.html" style="background-color: #171923; color: aliceblue;" data-id="1" data-description="Document ObjectModel">DOM</a>
+    <!-- data-{nombre que quieras darle} -->
+    <section class="cards">
+        <figure class="card">
+            <img src="images/allieee.jpg" width="200" alt="Tech">
+            <figcaption>
+                tech
+            </figcaption>
+        </figure>
+        <figure class="card">
+            <img src="images/Brian-TRACY.jpg" width="200" alt="Animals">
+            <figcaption>
+                animals
+            </figcaption>
+        </figure>
+        <figure class="card">
+            <img src="images/hill.jpg" width="200" alt="People">
+            <figcaption>
+                people
+            </figcaption>
+        </figure>
+        <figure class="card">
+            <img src="images/izumi.JPG" width="200" alt="Arch">
+            <figcaption>
+                arch
+            </figcaption>
+        </figure>
+        <figure class="card">
+            <img src="images/jamesClear.jpeg" width="200" alt="Nature">
+            <figcaption>
+                nature
+            </figcaption>
+        </figure>
+        
+    </section>
+    <SCript src="js/9_dom.js"></SCript>
+</body>
+</html>

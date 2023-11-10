@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Parámetros REST & Operador Spread
+    </h1>
+</body>
+</html>
+<script>
+    //los parametros Rest son una forma de agregar parametros
+
+    function sumar(a, b, ...c) {// ...c : es un parametro Rests. // lo usa los fremework o librerias reactivas
+        let resultado= a+b;
+        c.forEach(function name(n) {
+            resultado+=n;   
+        });
+        return resultado;
+    }
+        console.log(sumar(1,2));
+        console.log(sumar(1,2,3,4));
+        console.log(sumar(1,2,3,4,5,6));
+
+        //Operador Spread: eje: en lugar de hacer Concatenaciones o Push a tu areglo puedes usar...
+        //operador de propagacion. 
+
+        const arr1=[1,2,3,4,5,6],
+                arr2=[7,8,9,100]
+        console.log(arr1, arr2);// debo crear un arreglo 3 de estos 2 elemento.
+        
+        const arr3=[...arr1, ...arr2]// uso Spread: para convinarlos en un solo arreglo|| una expresion se expande con "..."
+        console.log(arr3);
+
+
+</script>

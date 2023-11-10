@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        WEB API's  ads
+        <!-- una Api es aquella serie de objetos y mecanismos que tiene lenguaje implementado en ciertas areas en este caso 
+        en el JS de los navegadores para interactuar con todo lo que tiene que ver con el navegador como es el arbol 
+        de la estructura de el documento HTML todo el control de la ventana del navegador, la barra de direcciones, el tamaño,
+        el caracteristicas que el navegador nos puede dar(posicionamiento, sistema operativo en el que se encuentra el usuario
+        la ubicacion geografica), CSSobject model o CSS OM no es mas que un conjunto de objetos, metodos que tiene JS 
+        para interactuar con el CSS  -->
+    </h1>
+    <H2>
+        DOM: Document Object Model (manipulacion de html mediante JS)
+        <!-- EL DOM es como los navegadores representan el codigo html para trabajarlo con JS
+        EL DOM es una interfaz estandarizada
+        el DOM es la API que tiene JS en la web para manipular el codigo HTML 
+        *TODO ESTO LO PODEMOS VER EN https://developer.mozilla.org/es/docs/Web/API/CSS_Object_Model 
+        erramientas para dar dinamicamente estilos a nuestras interfaces web*-->
+
+    </H2>
+    <h2>
+        CSSOM: CSS Object Model (es la manipulacion de CSS mediante JS)
+        <!-- es la manipulacion de css mediante javaScript -->
+    </h2>
+    <h2>
+        BOM: Browser Object Model(Cada navegador tiene su forma de manejar ciertas cosas)
+        <!-- nos sirve para detectar la ubicacion del usuario, ancho y alto de ventana -->
+    </h2>
+    <h2>
+        WEB APIs (ei pi ai)
+    </h2>
+    <ul>
+        <li>Eventos</li>
+        <li>Forms</li>
+        <li>AJAX - Fetch</li>
+        <li>History</li>
+        <li>Web Storage</li>
+        <li>Geolocation</li>
+        <li>Drag & Drop</li>
+        <li>Indexed DB</li>
+        <li>Canvas</li>
+        <li>MatchMedia</li>
+        <li>etc</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    //el objeto global de js en el cual pende todo es Window
+    console.log(window);
+    // navigator, location, history, indexDB (todod esto cuelga de nuestro objeto Window)
+    console.log(document );// mapea todo el contenido del Html
+
+    let texto="hola, soy tu amigo y docente digital Kenay, yo se que tú puedes gerrero"
+    const hablar=(texto)=>speechSynthesis.speak(new SpeechSynthesisUtterance(texto));
+    hablar(texto);
+
+    //asi como estas apis de SpeechSynthesis hay N cantidad, ejemplo para controlar la bateria de los dispositivos
+    //la ubicacion, manejo de Streming, web socked
+    // *la web va llegar un momento en que va tener las mismas caracteristicas de lo que podemos hacer a nivel de Hardware con una aplicacion
+    //nativa una aplicacion que se programó para android podemos hacer muchas cosas con la web de manera Opensource*
+</script>

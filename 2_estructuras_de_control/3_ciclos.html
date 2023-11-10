@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        CICLOS-LOOPS [estructuras repetitivas]
+    </h1>
+</body>
+</html>
+<script>
+    //actualmente el for y el do while estan cayendo mucho en desuso por ser mas imperativas 
+    //y JS cada ves es mas Declarativo y al ser Multiparadigma (poo programacion funcional)
+    //pues nos gusta escribir un codigo mas Declarativo que imperativo.
+
+
+    let contador = 0;
+    while (contador<10) {
+        console.log(contador);
+        contador++;
+    }
+    // se ejecuta la primera ves y al final evalua para la segunda vuelta.
+    do {
+        console.log("do while "+ contador);
+        contador++;
+    } while (contador<10);
+
+
+    // for (inicializacion; condicion; incremento o decremento) {
+    //     const element = array[index];
+        
+    // }
+    for (let index = 0; index < 10 ; index++) {
+        console.log("for "+ index)    
+    }
+
+    let numeros=[10,20,30,40,50,60,70,80,90];
+    //forma imperativa de recorer el array
+    for (let i = 0; i < numeros.length; i++) {// Propiedad length: devuelve longitu del arreglo
+        console.log(numeros[i]);// i va ser la posicion del arreglo. Nada mas
+        
+    }
+
+    //Desde ecma scrip 2015 o ecmascrip 6 vinieron variante del For
+    //FORIN
+    //Un Forin me va permitir recorer o iterar las PROPIEDADES DE UN OBJETO
+
+    //Creamos un objeto.
+    const persona={
+            nombre:"diego",
+            apellido:"ramos",
+            edad:26
+    }
+
+    for (const Propiedad in persona) { //el ciclo ForIn me va permitir iterar(recorer) toda las propiedades de un arreglo
+        //console.log(Propiedad);
+        console.log(`Keyy: ${Propiedad}, Valuess: ${persona[Propiedad]}`);//para imprimir Propiedad y su Valor.
+    }
+
+    //FOROFF
+    let numeross=[10,20,30,40,50,60,70,80,90];
+    for (const elemento of numeross) {//permite iterar todo los elementos de cualquier objeto que sea iterable||recoreme cada elemento que se encuentre dentro de numero. 
+        console.log(elemento);
+    }
+
+    
+    let cadena="hola mundo";
+    for (const caracter of cadena) {//recore cada uno de los Caracteres de la variable Cadena
+        console.log(caracter);
+    }
+</script>

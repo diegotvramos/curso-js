@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Expreciones Regulares. 
+    </h1>
+</body>
+</html>
+<script>
+    /*
+        Expreciones Regulares
+            Son una secuencia de caracteres que forman un patron de BUSQUEDA, 
+            principalmente utilizada para las busquedas de patrones de cadenas 
+            de caracteres. 
+    */
+
+   // EXPRECION REGULAR PARA VALIDAR CORREO ELECTRONICO. (GOOGLEAS)
+   // no te agobies, solo busca en google. [wikipedia]
+   let cadena= "lorem lorem lore lorem3 lorem2 2 lorem lorem lorem lorem lore lorem lorem lorem loremlorem lorem lore lorem lorem lorem loremlorem lorem lore lorem lorem lorem loremlorem lorem lore lorem lorem lorem lorem";
+   let expReg = new RegExp("lorem","ig"); // el segundo parametro son las banderas, es susecptible a mayusculas [i]
+   
+    //"I": Ignora entre mayusculas y minusculas
+    //"G": No se queda con la primera coincidencia sino que va buscar todas
+//    console.log(expReg.test(cadena)); // devuelve boolean
+//    console.log(expReg.exec(cadena));//devuelve un arreglo
+
+
+   //let expReg2=/lorem/ig;
+   //let expReg2=/[0-9]/ig;//corchetes
+   let expReg2=/lorem{1,4}/ig;// repide de una hasta 4 veces !! ig es una bandera
+   console.log(expReg2.test(cadena));
+   console.log(expReg2.exec(cadena));
+
+   //librerias que ya agrupan las expresiones regulares ¿como validar las expresiones regulares?
+</script>

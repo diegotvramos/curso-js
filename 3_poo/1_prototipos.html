@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Prototipos.
+        <p>
+            en JS podemos usar diferentes paradigmas de programacion.
+            la programacion funcional, la programacion orientada a objetos
+        </p>
+
+    </h1>
+</body>
+</html>
+<script>
+    // la poo en JS es muy diferente a otros lenguajes basados en clases. como c o java. 
+    // no es mas que una azucar sintactica. 
+    // las clases lo comvierten a funciones prototipicas. 
+
+    //POO
+    /*
+        Clases-modelo a seguir [persona, auto,]
+        Objetos-es una instancia de una clase, copia de el modelo a seguir
+            Atributos: es una caracteristia o propiedad del objeto. [variables dentro de un objeto]
+            Metodos: son las acciones que un objeto puede realizar[funcion nombre)(){} Son funciones dentro de un objeto.]
+    */
+
+    // LOS FUNDAMENTOS DE LA POO SE APLICAN PARA CUALQUIER LENGUAJE. 
+    // JS es un lenguaje orientado a Objtos, pero basado en Prototipo no en clases, 
+    //cuando escribimos una clase, tras bambalinas lo que hace es que le compilador de js
+    //si estamos hablando del navegador es el motor del navegador , si es a lado de servidor es NODEJS
+    //Lo que hace es transformar esa clase a una funcion prototipal. 
+
+    //PROTOTIPO: es un mecanismo por el cual un objeto puede heredar de un objeto padre ATRIBUTOS Y METODOS
+    //la herncia tanbien se da mediante la cadena e prototipos. Hace una copia del prototipo el cual esta basado. 
+    
+    //creamos un objeto
+    const animal={
+        nombre:"Snopyy",
+        sonar(){
+            console.log(`hago sonido por que estoy vivo`);
+        }
+    }
+
+    const animal2={
+        nombre:"lola bony",
+        sonar(){
+            console.log(`hago sonido por que estoy vivo`);
+        }
+    }
+
+    console.log(animal); // al imprimir podemos ver que tiener PROTOTIPO: OBJECT.
+    console.log(animal2);
+
+    //COMO GENERO PROTOTIPO PARA GENERAR N cantidad de animales
+
+    // funcion constructora. 
+    // function Animal(nombre, genero) { // cuando estemos trabajando con funciones constructorras tantto en metodos y atributos usamos(THIS)
+    //     //Atributos
+    //     this.nombre=nombre;
+    //     this.genero=genero;
+    //     //Metodos
+    //     this.sonar=function(){
+    //         console.log("hago sonidos por que estoy vivo.");
+    //     }
+    //     this.saludar=function() {
+    //         console.log(`Hola me llamo ${nombre}`);
+    //     }
+    // }
+
+        //FUNCION CONSTRUCTORA DONDE asignamos los metodos al prototipo 
+        // no a la funcion como tal para mas eficiencia
+    function Animal(nombre, genero) {
+        //Atributos
+        this.nombre=nombre;
+        this.genero=genero;
+    }
+        //Metodos agregados al prototipo de la la funcion Constructora:asignamos por fuera al prototipo
+    Animal.prototype.sonar=function(){// lo ccolgamos al prototipos
+        console.log("hago sonidos por que estoy vivo.");
+    }
+    Animal.prototype.saludar=function() {
+        console.log(`Hola me llamo ${this.nombre}`);
+    }// con essto logramos una mejora a nivel de Rendimiento y memoria en programacion
+
+    const   Snopyy = new Animal("Snoooopuyyy", "Macho"),
+            LolaBuny = new Animal("lOLA BUNYY", "hembra");
+    
+    console.log(Snopyy);
+    console.log(LolaBuny);
+
+    //cada ves que genero una nueva INSTANCIA se está duplicando el metodo SONAR y SALUDAR
+    Snopyy.saludar();
+    Snopyy.sonar();
+    
+    LolaBuny.saludar();
+    LolaBuny.sonar();
+
+    // CUANDO creamos nuestras funciones Constructoras, lo ideal es que tengan solo atritutos y los 
+    //metodos lo saquemos de la funcion y los peguemos a los prototipos 
+    // gracias a el azucar sintanctico de escribir Clases como en cualquier lenguaje de programacion,
+    //js lo que hace tras bambalinas hace funciones constructoras y prototipicas
+
+
+
+
+</script>

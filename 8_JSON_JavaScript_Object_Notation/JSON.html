@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        JSON_JavaScript_Object_Notation
+    </h1>
+</body>
+</html>
+<script>
+    // es un formato ligero de intercambio de datos, intercambio de informacion. 
+    //se ha convertido en un estandar
+    // antes de JSON existia un lenguaje de marcado llamado XML. (lenguaje de marcado)
+    // JSON le quitó protagonismo a XML
+
+    const json = {
+        cadena:"jon",
+        numero: 35,
+        booleano: true,
+        arreglo:["correr", "programar", "cocinar"],
+        objeto:{
+            twiter:"@jonmircha",
+            email:"jonmircha@gmail.com"
+        },
+        nulo:null
+    }
+
+    // todas las propiedades deben ir con comillas dobles: "cadena, numero etc."
+    // NO SE PUEDE COMENTAR EN JSON
+    console.log(json);
+
+    //TECTNICAS DE CONSUMO
+    //JSON es un estandar del lenguaje, Json te sirve para el JS de los navegadores, pero tambien para el js del lado del servidor
+     console.log(JSON);
+     // JSON es una interfaz de lenguaje y tiene 2 metodos( PARSE, STRINGIFY)
+
+     //PARSE: analiza una notacion JSON Y la va convertir a un tipo de dato que JS valide como un objeto, arreglo, un boolean
+
+     console.log("{}");
+     console.log("[1,2,3]");// esto lo imprime como cadena de texto por que está en color negrita. 
+     console.log("true");// los numeros y boolean no tienen que ser nesesariamente comillados
+     console.log("19");
+     console.log("null");
+     console.log("undefined");
+     console.log("hola mundo");
+
+
+     //PARSE ANALIZA UNA CADENA DE TEXTO Y LO CONVIERTE A UN OBJETO VALIDO PARA JAVASCRIPT
+     console.log(JSON.parse("{}")); // ya no es un simple juego de llaves, para JS ya es un objeto 
+     console.log(JSON.parse("[1,2,3]"));
+     console.log(JSON.parse("true"));
+     console.log(JSON.parse("19"));
+     console.log(JSON.parse("null"));// json. org, es un valor valido tipos de datos validos    
+     //console.log(JSON.parse("undefined"));
+     //console.log(JSON.parse("hola mundo"));// lo pueden ver en la pagina de javascript object notations
+
+     //LO CONTRARIO SERIA JSON.stringify()-> CONVIERTE un objeto valido para JS en una simple cadena de texto
+
+     console.log(JSON.stringify({})); 
+     console.log(JSON.stringify([1,2,3]));
+     console.log(JSON.stringify(true));
+     console.log(JSON.stringify(19));
+     console.log(JSON.stringify(null));
+     console.log(JSON.stringify(undefined));
+     console.log(JSON.stringify({x:2, y:3}));// lo convirtio a notacion JSON cadena de texto pero respetando comillas dobles en la parte de las propiedades.
+     console.log(JSON.stringify(json));
+    //para parse: todo esto es una cadena, pero una cadena valida en formato JSON entonces te lo convierto a un objeto primitivo de JS 
+     console.log(JSON.parse('{"cadena":"jon","numero":35,"booleano":true,"arreglo":["correr","programar","cocinar"],"objeto":{"twiter":"@jonmircha","email":"jonmircha@gmail.com"},"nulo":null}'));
+    
+
+    //eje, EL COMERCIO ELECTRONICO PHP va mandar los datos en formato de JSON pero los tiene que nadar en formato de de cadena de texto 
+    // entonces ya la interfaz del banco (PYTON) captuta esa cadena de texto que ha sido enviada en notacion de JSON, y con cun metodo
+    // que tenga PYTON para analizar ej(EN JAVASCRITP [JSON. PARSE]) pyton lo convierte en objeto y ya puede trabajarlo internamente.
+    // "pyton o cualquier lenguaje de programacion "
+    
+    // imagina que estas solicitando informacion a una API (DOM, AJAX, FETCH) cuando empecemos a consumir datos la cadena puede venir
+    // de la API a la que nos conectemos o la DB que nos conectemos y con esa informacion yo pode generar un objeto valido e imprimirla en la 
+    // interfaz visual de los navegadores, (tecnicas para poder leer los archivos JSON) por eje. si estamos en los navegadores de javaScrip
+    //tenemos el API de fetch o el API de ajax si estamos en el lado del servidor eje (NODE.JS: leemos el archivo con un reead file) 
+
+
+    //https://eloquentjavascript.net/ 
+    //js tiene sus caracteristicas y su sintaxis y que si quieres sacarle el maximo provecho tienes que entender como funciona la logica, la
+    //gramática y la sintaxis de ese lenguage
+
+    //part 1: LANGUAGE
+    // Es valido tanto en el JS de los navegadores como en el JS de los navegadores como en el Js del Servidor
+
+    //part 2: BROWSER.
+    // habla exclusivamente de las Apis que tienen que ver con la web (DOM, EVENTOS, AJAX, FORMULARIOS, CAMBAS, GEOLOCALIZACION)
+    // HASTA LA CLASE 59 SIRVE TANTO EN EL JS DE LOS NAVEGADORES, Y TAMBIEN EN LOS SERVIDORES.
+
+    //JSON: te sirve tanto en la parte en el frontend y backend 
+</script>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        WeakSets & WeakMaps
+    </h1>
+</body>
+</html>
+<script>
+    // mapas debiles y conjuntos debiles
+    //significa que solamente pueden almacenar referencias debiles
+    // es decir las llaves deben ser de tipo objeto
+    // las carencias de WeakSets & WeakMaps: no podemos iterar sobre las claves y valores no son elementos iterables.
+    // entonces no podemos utilizar ni for in, for of, for ins, foreach, tampoco podemos borrar todo los elementos de golpe
+    // no podemos usar el metodo CLEAR es decir hay q eliminar de uno en uno, y tampoco podemos verificar su tamaño
+    // no tiene la propiedad SIZE. 
+    
+    //const name = new Set(1,2,3,3,4,5,true,false,false,{},{},"hola","HOla");
+    //const name = new WeakSet(1,2,3,3,4,5,true,false,false,{},{},"hola","HOla"); //esto no se hace
+
+//     const ws = new WeakSet();
+//     let valor1={"valor1":1};// vean que cada uno son objetos 
+//     let valor2={"valor1":2};
+//     let valor3={"valor1":3};
+//     //ws.add(1);// estos elementos solo aceptan referencias debiles es decir objetos
+//     ws.add(valor1);
+//     ws.add(valor2);
+
+//     console.log(ws);// no tiene propiedad .SIZE
+
+    
+
+//     // podemos evaluar si tiene alguna referencia. 
+//     console.log(ws.has(valor1));//HAS tiene la referencia guardada en la variable VALOR1=== true
+//     console.log(ws.has(valor3));
+
+//     //podemos eliminar una referencia
+//     ws.delete(valor2);
+//     console.log(ws);
+
+//     //volvemos a agregar valor 2 y3 
+//     ws.add(valor2);
+//     ws.add(valor3);
+//     console.log(ws); // ahora ya tiene los 3 valores
+
+// // ahora ejecutamos un setinterval que me este imprimiendo mis referencias des weakSet
+//     setInterval(() => {
+//         console.log(ws);
+//     }, 1000);
+
+//     //para no estar esperando al recolector de basura
+//     // con esto detecto que las referencias donde estaban esas variables se nullificaron, digamos que se limpian
+//     //esto en la practica 
+//     //el cambio a nullo o undefinede de una de estas variables pues se pueda limpiar la referencia y eso 
+//     // con un mecanismo por eje en REACT O EN VUE.JS  cons sus respectivos siclos de vida o en angular o sbellt
+//     //digamos que se limpian 
+//     //esto es un ejemplo como en esas librerias reactivas pero con vanillajs jspurito
+//     setTimeout(() => {
+//        valor1=null;
+//        valor2=null;
+//        valor3=null; 
+//     }, 5000);
+    // WeakMap, solo permite llaves de tipo objeto. y que esten referenciadas en alguna variable|| los mapas son una especie de objetos mejorados
+    // const wm = new WeakMap(
+    //     ["nombre", "Kenai"],
+    //     ["edad",7],
+    //     ["animal","perro"],
+    //     [null,"nulo"]
+    // );
+    const wm = new WeakMap();
+    let llave1={};
+    let llave2={};
+    let llave3={};
+    //para agregar una llave usamos SET DE LOS MAPAS propiedad:valor a establecer
+    wm.set(llave1,1);// establecemos
+    wm.set(llave2,2);
+    console.log(wm);// no tienen propiedad de .size, NO son iterables
+    //podemos evaluar con el metodo HAS
+    console.log(wm.has(llave1));
+    console.log(wm.has(llave3));
+    //esto es para obtener los valores de una referencia
+    console.log(wm.get(llave1));
+    console.log(wm.get(llave2));
+    console.log(wm.get(llave3));
+
+    //si quiero eliminar una llave en particular usamos el metodo DELETE
+    wm.delete(llave2);
+    console.log(wm);
+    //establecemos 2 y 3
+    wm.set(llave2,2);
+    wm.set(llave3,3);
+    console.log(wm);
+    setInterval(() => {
+        console.log(wm);
+    }, 1000);
+    //  la referencias Debiles, cuando yo nullifique variables que hacen referencia a cada una de las propiedades 
+    // de este wm. pues estas se van a eliminar automaticamente y eso lo que hace es mejorar el rendimiento 
+
+    //un ejemplo de las weakMap es el manejo de las variables de estado en un componente hablando de REAC DE VUE de svel 
+    //diferencia: una variable de estado en reack o View, etc la he declarado como objeto, aca en vanillajs se usaria una WEAKMAP
+
+    //SI, una variable de estado donde almaceno informacion en estos frameworks la he declarado como areglo pues aca en vanilla js usaria un
+    //weakSet .... uno funciona como Objeto el otro funciona como si fuera una areglo
+
+    setTimeout(() => {
+       llave1=null;
+       llave2=null;
+       llave3=null; 
+    }, 4000);
+
+    // esto nos va ayudar a el rendimiento de nuesta APP. 
+    // si estas usando reac sbell, view, pues esos framework usan tecnicas muy similares a estos tipos de datos
+
+</script>

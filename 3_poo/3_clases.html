@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Clases y Herencias
+    </h1>
+</body>
+</html>
+<script>
+    
+
+    
+
+    class Animal {
+        //las clases no reciben parametros
+        //para poder recibir parametros, las clases tienen un metodo especial llamado constructor. 
+        constructor(nombre, genero){
+            //el constructor es un metodo especial que se ejecuta en el momento de instanciar la clase          
+            this.nombre=nombre;//Atributos
+            this.genero=genero;
+        }
+        //Metodos: si pueden recibir parametros
+        sonar(){
+            console.log("hago sonidos por que estoy vivo.");
+        }
+        saludar() {
+            console.log(`Hola me llamo ${this.nombre}`);
+        }
+    }
+
+    // const   mimi = new Animal("MIMI", "hEMBRA"),
+    //         scooby = new Animal("SCOOBY", "MACHO");
+    
+    // console.log(mimi);
+    // console.log(scooby);
+
+    // mimi.saludar();
+    // mimi.sonar();
+    // scooby.saludar();
+    // scooby.sonar();
+
+
+    class Perro extends Animal{ //¿como le digo a la clase Perro que herede el prototipo Animal?
+        constructor(nombre, genero, tamaño){
+            //con el metodo SUPER() se manda a llamar al constructor
+            //de la clase padre.
+            
+            super(nombre, genero)// es un metodo especial
+            this.tamaño=tamaño; // Tamaño es una propiedad exclusiva de los Perros
+        }
+        //sobreescritura de metodo
+        sonar(){
+            console.log("Soy un Perro y mi sonido es un Ladrido");
+        }
+        ladrar() {
+            console.log("GUAUU GUAUU  !!!!");
+        }
+    }
+    const   mimi = new Animal("MIMI", "hEMBRA"),
+            scooby = new Perro("SCOOBY", "MACHO","gigante");
+
+        console.log(mimi);
+        mimi.saludar();
+        mimi.sonar();
+
+        console.log(scooby);
+        scooby.saludar();
+        scooby.sonar();
+        scooby.ladrar();
+        
+
+    //tras bambalinas JS sigue interpretando esta clase como prototipo
+    // si analizamos ya se ve una cadena prototipica. 
+    // Perro deriva del prototipo Animal y Animal deriva de Object
+    // php SI utiliza clases no Prototipos
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Mapas
+    </h1>
+</body>
+</html>
+<script>
+    // los Maps son objetos que nos sirven para almacenar conjunto de valores asociados a manera de objeto
+    // es como si fuera un objeto primitivo
+    // trabaja de manera muy similar a la manera en como se obtienen y como se establecen los valores de sus propiedades
+    // muy similar los GETTTERS Y SETTERS 
+    let mapa = new Map();
+    // agregamos valores, hay dos maneras
+    mapa.set("nombre","diego")
+    mapa.set("apellido","ramos")
+    mapa.set("edad",26)
+
+    console.log(mapa);//muestra una coleccion de datos como si fuera un mapa un dicionario
+    // quiero saber cuantos elementos tiene mi mapa.
+    console.log(mapa.size);
+    // podemos comprobar si hay una llave o no
+    console.log(mapa.has("correo"));
+    console.log(mapa.has("nombre"));
+    //si SET es para establecer entonces GET es para obtener valores
+    console.log(mapa.get("nombre"));
+    //se puede sobreescribir el valor
+    mapa.set("nombre","sherlock");
+    console.log(mapa.get("nombre"));
+    // para elminar elementos de un mapa, de una coleccion 
+    mapa.delete("apellido");
+
+    //es extraño: asi como los SETS son arreglos que no permiten valores repetidos, digamos que los maps son objetos 
+   // que nos permite tener la coleccion de LLAVE y VALOR 
+   // pero la diferencia es que en un objeto primitivo el nombre de todas las propiedades de ese objeto son cadenas de texto.
+   // pues resulta que en los mapas nosotros podemos generar llaves que no sean cadenas de texto null true etc {no es recomendado}
+    mapa.set(19,"diecinuevo"); // genero llave
+    mapa.set(false, "falso");
+    mapa.set({},{});// generamos una llave que sea un objeto y que su valor sea un objeto
+    
+    console.log(mapa);
+    //¿Como recoremos um mapa: pues justamente es un elemento Iterable ? podemos usar un forOF
+   for (const [key, value] of mapa) {// voy a usar destructuracion
+        console.log(`Llave:${key}, Valor: ${value}`);
+   }
+
+   //uso de los mapas: guardar una colecion de datos  que a lo mejor esten relacionadas: Catalago, algo preestablecido
+   // recuerda en el SET tenemos 2 maneras de inicializarlo 1)generar un arreglo con los valores del set o con el metodo ADD
+   //
+   //Todo lo que no es un valor primitivo anque lo guardes en una constante la constante significa que no va cambiar de tipo de dato
+   // tanto los MAPAS y los SETS son tipos de datos complejos no son primitivos, exepto SYMBOL, podemos usar 
+   //CONST sin ningun problema
+
+   const mapa2 = new Map([
+    ["nombre","kenay"],
+    ["edad",7],
+    ["animal", "perro"],
+    [null,"nulo"]
+   ]);
+   console.log(mapa2);
+   // pudo recorerlo por iteracion, por que es un elemento iterable
+   // los SETS tienen valores unicos vean que aca tenemos un jUego de CLAVE Y VALOR.
+
+   // puedo almacenar toda las llaves en una variable y en otra los valores  con la ayuda de la destructuracion.
+
+   const llavesMapa2=[...mapa2.keys()];
+   const valoresMapa2=[...mapa2.values()];
+   console.log(llavesMapa2);
+   console.log(valoresMapa2);
+
+   // no hay mucha funcionalidad hasta hora de los MAPAS. (se pararecen mas a los objetos)
+
+
+    
+
+   
+
+
+</script>

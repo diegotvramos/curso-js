@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        PROPIEDADES DINAMICAS DE LOS OBJETOS
+    </h1>
+</body>
+</html>
+<SCript>
+    //compiut propertis.
+    //cuando estemos desarrollando va ver la necesidad de crear PROPIEDADES dinamicas en un objeto.
+    //imagina que estas esperando la carga de usuarios: y por cada usuario debes crear un objeto que diga{id:1, id:2....}
+    //TENEMOS UN NUEVO MECANISMO de generar el nombre de las propiedades de manera dinamica en un objeto.
+
+
+    let aleatorio=Math.round(Math.random()*100+10)
+    const objUsuarios={
+        // podemos crear dentro del objeto estas propiedades dinamicas
+        // lo que va indicar que una propiedad la pueda definir de una manera dinamica es la sintaxis de los corchetes
+        propiedad:"valor", // propiedad comun y corriente
+        [`id_${aleatorio}`]:"Valor aleatorio" // la notacion de los "[]" es muy importante
+        //let newURL=[`/${SLUG}`];   // ES PARA crear url mas amigables
+    }//ahorita no estamos interactuando con apis de datos.
+    console.log(objUsuarios);
+
+
+    const usuarios=["jon","irma","diego","allie","agustina","vadim","brian","napoleon","fernanda","kenai"];
+    // por cada usuario se le genere al objeto usuario una propiedad id_1[posicion]
+    //una manera de crear una propiedad despues de que ya sido definido un objeto  es con la notacion del "." o notacion del corchete"[]"
+    usuarios.forEach((usuario, index)=>objUsuarios[`id_${index}`]=usuario);
+    console.log(objUsuarios);
+</SCript>

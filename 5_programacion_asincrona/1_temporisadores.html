@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        ASINCRONIA EN JAVASCRIPT
+    </h1>
+    <SCript>
+        // //setTimeout: recibe una funcion'colback'' y recibe un tiempo expresado en milisegungo
+        // console.log("inicio");
+        // setTimeout(() => {
+        //     console.log("ejecutando un setTimeout: esto se ejecuta una sola ves");
+        // }, 500); //expresado en milisegundos se retraso por eso lo bajé a 500ms
+
+        // setInterval(() => {
+        //     console.log("ejecutando un setInterval: esto se ejecuta indefinidamente cada cierto intervalo de tiempo");
+        // }, 1000);//
+
+
+        // setInterval(() => {
+        //    console.log(new Date().toLocaleTimeString()); 
+        // }, 2000);
+        
+        //COMO PARAR UN SETTIMEOUT?
+        // let temporitizador= setTimeout(() => {
+        //     console.log("ejecutando un setTimeout: esto se ejecuta una sola ves");
+        // }, 500);
+
+        // clearTimeout(temporitizador);
+        // console.log("despues del clearTimeout");
+
+        let temporrizador = setInterval(() => {//se ejcuta cada 1000 ms
+           console.log(new Date().toLocaleTimeString()); 
+        }, 1000);
+
+        //clearInterval(temportizador)
+        console.log("despues del clearInterval");
+        
+
+    </SCript>
+</body>
+</html>

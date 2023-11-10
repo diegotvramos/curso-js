@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Metodos Estaticos, Getters y Setters
+    </h1>
+</body>
+</html>
+<script>
+    //OTROS LEGUAJES DE PROGRAMACION:clases abstractas, modificadores de acceso
+    //[clases publicas, privadas, protegida.]
+    //
+
+    // Todas las clases que genramo en JavaScrtipt son publicas. 
+    //por eso no es necesario poner la palabra Public a nuestra clase. 
+    //pero si hay metodos estaticos
+
+    
+
+    class Animal {
+        constructor(nombre, genero){
+            //el constructor es un metodo especial que se ejecuta en el momento de instanciar la clase          
+            this.nombre=nombre;//Atributos
+            this.genero=genero;
+        }
+        //Metodos: si pueden recibir parametros
+        sonar(){
+            console.log("hago sonidos por que estoy vivo.");
+        }
+        saludar() {
+            console.log(`Hola me llamo ${this.nombre}`);
+        }
+    }
+
+    //HERENCIA
+    class Perro extends Animal{ //¿como le digo a la clase Perro que herede el prototipo Animal?
+        constructor(nombre, genero, tamaño){
+            super(nombre, genero)// es un metodo especial
+            this.tamaño=tamaño; // Tamaño es una propiedad exclusiva de los Perros
+            this.raza=null;
+        }
+        //sobreescritura de metodo
+        sonar(){
+            console.log("Soy un Perro y mi sonido es un Ladrido");
+        }
+        ladrar() {
+            console.log("GUAUU GUAUU  !!!!");
+        }
+        //Un Metodo Estatico se pueden ejecutar sin necesidad de instanciar la clase. 
+        static queEres(){
+            console.log("Los perros somos animales mamiferos que pertenecemos a la familia de los caninos, somos consideredos los mejores amigos del hombre");
+        }
+        //Los Getters y Setters son metodos especiales que nos permiten 
+        //establecer y obtener los valores de atributos de nuestra clase.
+        //Aunque sean metodos los vamos a utilizar como atributos
+        get getRaza(){// no es un simple metodo si no es un metodo de tipo obtenedor. le anteponemos la palabra GET
+            return this.raza
+        }
+        //metodo establecedor que modifique el valor de dicha propiedad 
+        set setRaza(raza){
+            this.raza=raza  // a la propiedad raza asignale el valor de la raza 
+        }
+    }
+    // este metodo Estatico puedo ejecutarlo sin la necesidad de haber creado un objeto 
+    Perro.queEres();// no necesito instanciar un metodo estatico
+
+
+    const   mimi = new Animal("MIMI", "hEMBRA"),
+            scooby = new Perro("SCOOBY", "MACHO","gigante");
+
+        console.log(mimi);
+        mimi.saludar();
+        mimi.sonar();
+
+        console.log(scooby);
+        scooby.saludar();
+        scooby.sonar();
+        scooby.ladrar();
+        //scooby.getRraza; // aunque es un metodo javascript lo trata como una propiedad. 
+        console.log(scooby.getRaza);
+        scooby.setRaza="Gran Danez";
+        console.log(scooby.getRaza);
+        //El metodo Estatico, que se puede utilizar sin la necesidad de tener una instancia
+        
+</script>

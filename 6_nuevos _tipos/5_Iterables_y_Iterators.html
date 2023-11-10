@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Iterables & Iterators
+    </h1>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+</body>
+</html>
+<SCRipt>
+    //Nodos del Doom, las cadenas de texto los arreglos, los Strings los maps son elementos iterables
+    //al ser iterables guardan algunas caracteristicas
+    //Lo que se conoce como iterador es la interfaz que es una especie de apuntador que va recoriendo los
+    //elementos.
+    //ITERABLE:es el elemento el cual su contenido se puede recorrer
+    //ITERADOR: es ese apuntador es el mecanismo que esta recoriendo los elementos.
+
+    // const iterable =[1,2,3,4,5];
+    // const iterable =new Set([1,2,3,3,3,4,5,5,6]);// SET: es un areglo especial que no recibe valores Duplicados
+    //const iterable ="Hola mundo"
+    const iterable = new Map([["nombre", "Jon"],["edad", 35]]);
+
+
+    //como accedemos al iterador|| accedemos al iterador del itterable
+    const iterador= iterable[Symbol.iterator]();
+    console.log(iterable);
+    //quieres acceder a la propiedad especial que es el iterador de un areglo
+    // StringIterator
+    console.log(iterador);
+    //Como yo podria recorer cada uno de estos elementos 
+    //puedo ejecutar un metodo Especial que tiene el iterdor 
+    // console.log(iterador.next());// ya se acabó?? pregunta y responde False
+    // console.log(iterador.next());//
+    // console.log(iterador.next());
+    // console.log(iterador.next());
+    // console.log(iterador.next());
+    // console.log(iterador.next());
+    // console.log(iterador.next());
+    //el ITERADOR es una interfaz especial que tenemos para recorer elemento que sean iterables
+
+    let next =iterador.next();
+
+    // iterador.next regresa un objeto {value: 1, done: false} DONE:INDICA SI YA SE ACABARN LOS ELEMENTOS
+    //entonces podria acceder a la propiedad DONE de tal manera que si DONE sea true se detenga
+    while (!next.done) {
+        console.log(next.value);//Value: la propiedad de el objeto llamado valor
+        next=iterador.next();
+    }
+
+</SCRipt>

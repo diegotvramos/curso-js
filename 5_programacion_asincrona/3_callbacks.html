@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        CALLBACKS: LLAMADA DE VUELTA.
+    </h1>
+</body>
+</html>
+<script>
+    //es una funcion que se va ejecutar despues de que otra lo haga. 
+    //es el mecanismo por exelencia de JS para invocar alguna de sus funciones. 
+    //funciones:simular retornar funcion de otra,  crear funciones autoinvocadas. 
+    //callbacks: mecanismo para trabajar con sincronia
+
+    function cuadradoCallback(value, callback) {
+        setTimeout(() => {
+            callback(value,value*value);
+        }, 0 | Math.random()*1000);
+    }
+
+        // callback heald Piramide del infierno
+    cuadradoCallback(0,(value, result)=>{
+        console.log("inicia Callback!!");
+        console.log(`Callback: ${value},${result}`);
+        cuadradoCallback(1,(value, result)=>{
+        console.log(`Callback: ${value},${result}`);
+        cuadradoCallback(2,(value, result)=>{
+        console.log(`Callback: ${value},${result}`);
+        cuadradoCallback(3,(value, result)=>{
+        console.log(`Callback: ${value},${result}`);
+        cuadradoCallback(4,(value, result)=>{
+        console.log(`Callback: ${value},${result}`);
+        console.log("Fin Callback");
+            console.log("Callback Hell !!!!!😈🤘");
+            console.log("http://callbackhell.com/");
+    });
+    });
+    });
+    });
+    });
+
+    //cuando esta concatenando varias peticiones asincronas los callbacks no son muy recomendadas   
+    //
+</script>

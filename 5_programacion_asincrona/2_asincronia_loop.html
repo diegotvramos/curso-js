@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        JavaScript Asíncrono
+    </h1>
+</body>
+</html>
+<script>
+
+  //   //lifo[los primeros en entrar es la ultima en salir]
+    //js[estilo navegador/estilo servidor]
+    //sincronia, asincronia,    
+
+    // Procesamiento Single thread (Hilo único) y Multi thread (Hilos múltples).
+    // Operaciones de CPU y Operaciones de I/O (Entrada y Salida).
+    // Operaciones Concurrentes y Paralelas.
+    // Operaciones Bloqueantes y No Bloqueantes.
+    // Operaciones Síncronas y Asíncronas. [sincrono: la respuesta sucede en el presente|| Asincrono: la respuesta sucede en un futuro, se ejecuta pero no sabe cuando va venir la respuesta]
+    // La Operacion Asíncrona no va esperar el resultado.
+
+    /*Codigo Sincrono bloquente*/
+        //funciones anonimas auto ejecutables
+        (()=>{
+                console.log("Código Sincrono");
+                console.log("Inicio");
+
+                function dos() {
+                console.log("Dos");
+                }
+
+                function uno() {
+                console.log("Uno");
+                dos();
+                console.log("Tres");    
+                }
+
+                uno();// livera el hilo
+                console.log("Fin");
+        })();
+
+        console.log("*****************************************");
+    /*Codigo Asincrono No bloqueante*/
+    // el lowder evita que interactua con una pagina que no este cargado en su totalidad. 
+        (()=>{
+            console.log("Codigo Asincrono.");
+            console.log("Inicio");
+
+                function dos() {
+                setTimeout(function () {
+                    console.log("Dos");
+                }, 1000);
+                }
+
+                function uno() {
+                setTimeout(function () {
+                    console.log("Uno");
+                }, 0);// pareciera que no tiene tiempo por que es 0  los LOGS tienen MAYOR preferencia
+                dos();
+                console.log("Tres");
+                }
+
+                uno();
+                console.log("Fin");
+                        })();
+
+  
+//  /**
+    // RESUMEN.
+    // JAVASCRIPT usa un modelo asincrono y no bloqueante,
+    // con un loop de eventos implementado en un solo hilo, 
+    // (single thread) para operaciones con entrada y salida
+    // (input/ouput)
+     
+
+
+</script>

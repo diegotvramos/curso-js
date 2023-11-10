@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Nuevos tipos de datos en JAVASCRIPT
+    </h1>
+</body>
+</html>
+<SCript>
+    //Symbol: es un tipo de dato primitivo. 
+    //se agrega como caracteristicas de un objeto, osea como una propiedad
+    // se mantienen privadas.
+    // no usamos NEW
+
+    //Los simbolos se usan a menudo para identificar las propiedades de los objetos 
+    // para evitar coliciones entre propiedades.
+    //mantiene en anomimo
+    // let id= "hola";
+    // let id2= "hola";
+    // console.log(id===id2);
+
+    // true
+    // let id= Symbol("id");//asi se define el Symbol
+    // let id2= Symbol("id2");// un symbolo crea una referencia unica.  por eso muestra fals
+    // console.log(id===id2);
+    // console.log(id,id2);
+    // console.log(typeof id,typeof id2);// analizamos el tipo de dato. 
+
+    //buena practica con CONST.
+    const NOMBRE= Symbol("nombre ");// nombre: es solo una etiqueta para el programador
+    const SALUDAR=Symbol("saludar");
+
+    const persona = {// objeto
+        [NOMBRE]:"diego",// un simbolo usa corchetes// se comportan como propiedades privadas
+        edad:26 //
+    }
+    console.log(persona);
+
+
+    persona.NOMBRE="diego ramos";// CREAMOS UNA PROPIEDAD AL OBJETO con la notacion del punto(.)
+    console.log(persona);
+    // como llamamos una propiedad de un objeto
+    console.log(persona.NOMBRE);
+    console.log(persona[NOMBRE]);
+
+    // el simbolo debe existir
+    persona[SALUDAR]=function () {// creamos un metodo saludar
+        console.log("hola");
+    }
+    console.log(persona);// analizamos al estructura de nuestro objeto
+    persona[SALUDAR]();// ejecutamos esa funcion
+
+    // para recorer las propiedades del objeto persona
+    for (let propiedad in persona) {//recoro las propiedades que esta en objeto persona
+        console.log(propiedad);
+        console.log(persona[propiedad]);
+    }
+    //como podria listar los simbolos, osea los atributos privadod del objeto 
+    Object.getOwnPropertySymbols(persona);
+    console.log(   Object.getOwnPropertySymbols(persona));
+
+
+    //la mayoria de sus usos es crear elementos privados dentro de un objeto y que tambien sus referencias vana a ser unicas 
+</SCript>

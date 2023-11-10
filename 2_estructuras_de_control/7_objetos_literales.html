@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Objetos Literales. 
+    </h1>
+</body>
+</html>
+<script>
+    let nombre ="Kenai",
+        edad=7;
+        //Antes
+        //creamos un objeto
+    const perro={
+        nombre:nombre,
+        edad:edad,
+
+        ladrar:function(){//lladrar va ser una funcion/metodo
+            console.log("wao wao wao guauuu");
+        }
+    }
+    //Antes
+    console.log(perro);
+    perro.ladrar();
+
+
+    //ahora. la nueva forma de declara los Objetos Literales. 
+    const dog={
+        nombre,//js entiende que el nombre de la propiedad es igual al nombre de la variable 
+        edad,
+        raza:"callejero",
+
+        ladrar(){// obiamos la palabra Function. Esta es la nueva forma de crear un metodo/funcion.
+            console.log("guau guau guauuu guauuuu guauuuuuuu");// nueva forma de declara los metodos en objetos literales. 
+        }
+    }
+    console.log(dog);
+    dog.ladrar();
+</script>

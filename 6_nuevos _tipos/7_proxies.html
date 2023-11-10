@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        PROXIES
+    </h1>
+</body>
+</html>
+<SCript>
+    //es un nuevo mecanismo que tiene JS que permite crear un objeto basado en un objeto literal inicial
+    //las Clases son un modelo a seguir, y cuando generamos una nueva instancia de esa nueva clase, pues
+    //esa instancia o "objeto" obtiene ciertas caracteristicas
+    // proxies es muy similar, en ves de usar una clase (modelo a seguir), usaremos un objeto Literal
+    // va permitir que tu realizes ciertas operaciones como por ejemplo: validacion de propiedades de tipo de datos
+    // dentro de la copia que se esta creando del objeto Original
+
+    const persona={
+        nombre:"",
+        apellido:"",
+        edad:0
+    }
+    // apartir de esto genero varias personas
+
+    const manejador={// objeto
+        set(obj, prop, valor){//aca establecemos las validaciones
+            if (Object.keys(obj).indexOf(prop)=== -1) { // recuerden que el metodo SET recibe el objeto en el primer parametro
+               //INDEXOF: regresa un número cuando encuentra una coincidencia de la palabra o el caracter o el patron que esta buscando                                 
+                return console.error(`la propiedad "${prop}" no existe en el objeto persona`);
+            }
+            //VALIDACION PARA NOMBRES Y APELLIDOS.
+            if ((prop=== "nombre" || prop==="apellido") && !(/^[A-Za-zÑñÁáÉeÍíÓóÚúÜü\s]+$/g.test(valor))) {//U con dieresis Ü "\S" <- representa espacios en blanco                
+                //si el nombre o apellido no coincide con esta exprecion regular "A-Z-zÑñÁáÉeÍíÓóÚúÜü\s"
+                return console.error(`la propiedad ${prop} solo acepta letras y espacios en blanco`);
+            }
+            if ((prop=== "edad")&& !(/^[0-2024]+$/g.test(valor))) {
+                return console.error(`la propiedad ${prop} solo acepta numeros enteros`);
+            }   
+            obj[prop]=valor;
+        }
+    }
+    const jon= new Proxy(persona, manejador); //copia?
+    jon.nombre="jjon";
+    jon.apellido="Mircha";
+    jon.edad=35;
+    jon.twitter="@jonmircha";
+
+    console.log(jon);
+    //al visualizar no se ha inicializado? ¿por que?
+    //por que SET hace las validaciones para que no modifique la estructura de la copia.
+    
+    console.log(persona); // recuerden que hay una vinculacion entre la copiea->jon y el objeto original-> persona
+
+
+
+    //El proxi hace una vinculacion entre el objeto ORIGINAL, el objeto copia y atraves de su objeto especial manejador 
+    //podemos hacer la validacion antes de hacer la asignacion, 
+    // en las clases GENERAMOS INSTANCIAS nada mas que en lugar de utilizar clases pues utilizamos "objetos literales" 
+    //
+
+</SCript>

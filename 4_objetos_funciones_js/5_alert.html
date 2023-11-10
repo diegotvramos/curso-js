@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Alert, Confirm, prompt
+    </h1>
+</body>
+</html>
+<script>
+    // 3 metodos importantes que estan en el JAVASCRIPT DE LOS NAVEGADORES. Y NO HACI EN LA 
+    // PARTE DEL SERVIDOR EJE: NODE.JS
+
+    console.log(window);
+    //Alert, Confirm, prompt ya permiten una interaccion con el usuario.
+
+    // window.alert("Esto es una Alerta");// muestra una alerta con un boton
+    // window.confirm("Hola, esto es una confirmacion");// muestra 2 botones:aceptar y confirmar.
+    // window.prompt("Hola, esto es un Promt, y esto le permite al usuario ingresar un valor");
+    // // Son metodos que cuelgan del objeto global window pero no es necesario poner el Window.
+
+    // alert("Esto es una Alerta");// muestra una alerta con un boton
+    // confirm("Hola, esto es una confirmacion");// muestra 2 botones:aceptar y confirmar.
+    // prompt("Hola, esto es un Promt, y esto le permite al usuario ingresar un valor");
+
+    // ahora podemos colocarlos a una variable
+    let alerta= alert("Esto es una Alerta"),
+        confirmacion= confirm("Hola, esto es una confirmacion");
+        aviso= prompt("Hola, esto es un Aviso, y esto le permite al usuario ingresar un valor");
+
+        console.log(alerta);
+        console.log(confirmacion);
+        console.log(aviso);
+
+    // una alerta nada mas me va servir para mandar un mensajito al usuairo
+    // la confirmacion: sipreciono aceptar almacena la confirmacion en la variable (true/folse)
+    //si el usuario pone datos en el promt, en la variable Aviso se guarda dicha informacion 
+</script>

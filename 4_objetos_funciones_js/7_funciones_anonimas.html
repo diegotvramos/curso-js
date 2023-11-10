@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+            FUNCIONES ANONIMAS AUTOEJECUTABLES.
+    </h1>
+</body>
+</html>
+<script>
+    // fue un patron muy importante en jquery o vanilla js
+    // es una funcion donde englobas todo el codigo que quieres ejecutar
+
+    // EJ. EL CONTEXTO GLOBAL este patron fue muy usado. (como que lo encapsula)
+    // 
+    
+    // Entramos a este link https://cdnjs.com/libraries/jquery 
+    // vamos a hacer prueba con el Jquery no minificado sino el indentado.
+
+    // Funcion Anonima auto ejecutable
+    // como seria una funcion que no tiene nombre y que se autoejecuta
+
+    (function () {// la envolvemos en un parentesis
+        console.log("Mi primera funcion anonima auto ejecutada {IIFE}");
+    })();// poner punto y coma.[necesario]
+
+    (function (d,w,c) {// el primer parametro lo voy a llamr D....
+        console.log("Mi SEGUNDA IIFE");// El codigo de uno no esta entrando en conflicto con e codigo dela otra GRACIAS A PUNTO Y COA [document esta reperentado por D y asi respectivamente]
+        console.log(d);
+        console.log(w);
+        c.log("este es un console.LOG");
+    })(document, window, console);//paso el objeto Documento, Window: es el objeto global, y Console:[paso de parmametros]
+    alert("Hola"); // no olvides el punto y Coma
+
+    // ESTE ERA UN PATRON MUY UTILIZADO. 
+    // Formas de escribir las Funciones Anonimas Autoejecutables. 
+
+    //clasica
+    (function () {
+        console.log('version clasica');
+    })();
+
+    //La Crockford(javascript The God Parts)
+    ((function () {
+        console.log("Version Crockford");
+    })());
+
+    //Unaria
+    +function () {
+        console.log('Version Unaria');
+    }();
+
+    //facebook
+    !function () {
+        console.log("version Facebook");
+    }();
+
+    //ESTA era la manera de encapsular tu codigo. 
+    // hay nuevas formas de mandar a llamar modulos ya en el navegador eje nodejs, y ya se puede en nuestros navegadores webs
+</script>
