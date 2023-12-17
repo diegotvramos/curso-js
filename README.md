@@ -71,4 +71,13 @@ lo que nos interesa son los:
 
  tu puedes crear tus propios archivos Json en el mundo laboral vas a tener que consumir (aplicaciones)apis que esten en el internet
 
+<h4>AJAX: Api Fetch</h4>
 
+_tras bambalinas usa OBJETO XMLHttpRequest _
+
+> fetch("https://jsonplaceholder.typicode.com/users").then().catch().finally();
+>> fetch("", {method:"GET"}) puede recibir un parametro de opciones
+fetch trabaja con un mecanismo de promesas
+se simplifica el codigo, para eso debemos entender las promesas entender el THEN, CATCH, FINALLY
+PARA LA PROXIMA VE EL VIDEO DE Async- Await que es una manera de conbinar promesas con funciones asincronas que se esperan a la respuesta del servidor
+esta es la 2da manera de trabajar peticiones asincronas Ajax con los navegadores web    

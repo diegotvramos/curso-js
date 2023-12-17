@@ -23,15 +23,15 @@
            xhr.addEventListener("readystatechange",(e)=>{
             if (xhr.readyState!==4)return;
 
-            console.log(xhr);
+            //console.log(xhr);
             if (xhr.status>=200&&xhr.status<300) {
                 
-                console.log("éxito ");
-                console.log(xhr.responseText);
+                // console.log("éxito ");
+                // console.log(xhr.responseText);
                 //$xhr.innerHTML=xhr.responseText;
 
                 let json =JSON.parse(xhr.responseText); // con convierte a arreglo
-                console.log(json);
+               //console.log(json);
 
                 json.forEach((el)=> {
                     const $li= document.createElement("li");
@@ -48,12 +48,43 @@
 
             }
             
-            console.log("Este mensaje cargará de cualquier forma");
+            //console.log("Este mensaje cargará de cualquier forma");
            })//forma mas estandarizada en los ultimos años
 
-           xhr.open("GET", "https://jsonplaceholder.typicode.com/user"); //verbo http en este caso GET
+           xhr.open("GET", "https://jsonplaceholder.typicode.com/users"); //verbo http en este caso GET
            //xhr.open("GET", "../0_assets/users.json"); // local
            
 
            xhr.send();
+})();
+
+
+//api FETCH
+(()=>{
+    const $fetch = document.getElementById("fetch"),
+            $fragment=document.createDocumentFragment();
+
+        
+        //fetch("https://jsonplaceholder.typicode.com/users")
+        fetch("../0_assets/users.json")// local
+        // lo podemos combertir a texto(si estamos recibiendo codigo html, o xml) o imagen en data uri.
+        //     // //res.blob(); [.json, .blob .text]
+        .then((res)=>(res.ok?res.json():Promise.reject(res)))//operador ternario.
+        .then((json)=>{
+            console.log(json);
+            //$fetch.innerHTML=json;
+            json.forEach((el)=> {
+                const $li= document.createElement("li");
+                $li.innerHTML=`${el.name}---${el.email}---${el.phone}`;
+                $fragment.appendChild($li);
+            });
+            $fetch.appendChild($fragment)
+        })
+        .catch((err)=>{
+            console.log(err);
+            let message= err.statusText||"Ocurrio un Error";
+                $fetch.innerHTML=`Error ${err.status}. ${message}`
+        }).finally(()=>{
+            console.log("Esto se ejecutará independientemente del resultado de la Promesa Fetch");
+        });     
 })();
