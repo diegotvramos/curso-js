@@ -80,4 +80,13 @@ _tras bambalinas usa OBJETO XMLHttpRequest _
 fetch trabaja con un mecanismo de promesas
 se simplifica el codigo, para eso debemos entender las promesas entender el THEN, CATCH, FINALLY
 PARA LA PROXIMA VE EL VIDEO DE Async- Await que es una manera de conbinar promesas con funciones asincronas que se esperan a la respuesta del servidor
-esta es la 2da manera de trabajar peticiones asincronas Ajax con los navegadores web    
+esta es la 2da manera de trabajar peticiones asincronas Ajax con los navegadores web
+
+<h5>AJAX: Api Fetch + Async-Await</h5>
+el codigo se ve mas limpio
+el objeto Error "Error" de js solo recibe mensajes textuales
+los errores en JS no aceptan objetos
+el "Throw" es como un retur que envia el flujo de la programacion al Catch.
+if (!res.ok)throw new Error("Ocurrio un error al solicitar los Datos");
+formamos un objeto
+
