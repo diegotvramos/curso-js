@@ -106,3 +106,13 @@ está en la documentacion de Axios
 https://github.com/axios/axios?tab=readme-ov-file#handling-errors 
 
 
+<h4>Ajax: libreria Axios & Async-Await</h4>
+
+al igual que fetch puede que te de cononflicto esto de tener codigo concateneado en (thens) entonces podemos hacer uso de funciones asincronas para mejorar la legibilidad
+
+axios se ha vuelto un estandar.
+
+¿por que repeti a nivel del DOM?
+para que vean que el resultado lo podemos hacer con cualquiera de estas 5 mecanismos 
+Axios lee peticiones apis publicas  como tambien de archivos locales
+
