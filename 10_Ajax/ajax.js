@@ -99,10 +99,10 @@
     async function getData() {
         try {
             // antes de que ejecute la siguiente linea de codigo espere. AWAIT
-            let res= await fetch("https://jsonplaceholder.typicode.com/user"),
+            let res= await fetch("https://jsonplaceholder.typicode.com/users"),
                 json=await res.json();//espera antes de ejecutar la siguiente linea y comvierte en formato json la peticion.
 
-            console.log(res, json);
+           // console.log(res, json);
 
 
             // el objeto Error "Error" de js solo recibe mensajes textuales
@@ -123,18 +123,44 @@
 
 
         } catch (err) {
-            console.log(err);
+            //console.log(err);
 
             let message= err.statusText||"Ocurrio un Error";
                 $fetchAsync.innerHTML=`Error ${err.status}. ${message}`
 
 
         }finally{// si necesito ejecutar algo independientemente del resultado
-            console.log("Esto se ejecutará independientemente de try... catch");
+            //console.log("Esto se ejecutará independientemente de try... catch");
         }
         
     }
 
     getData()
     
-})()
+})(); // no olvides poner el punto y coma al final de una funcion anoníma.
+
+(() => {
+    const $axios = document.getElementById("axios"),
+            $fragment=document.createDocumentFragment();
+
+    axios        
+    .get("https://jsonplaceholder.typicode.com/user")
+    .then((res)=>{
+        console.log(res);
+        let json=res.data;
+        json.forEach((el)=> {
+            const $li= document.createElement("li");
+            $li.innerHTML=`${el.name}---${el.email}---${el.phone}`;
+            $fragment.appendChild($li);
+        });
+        $axios.appendChild($fragment);
+    })
+    .catch((err)=>{
+        console.log(err.response);
+        let message= err.response.statusText||"Ocurrio un Error";
+                $axios.innerHTML=`Error ${err.response.status}. ${message}`
+    })
+    .finally(()=>{
+        console.log("Esto se ejecutará independientemente del resultado de la Promesa Fetch");
+    });
+})();

@@ -83,10 +83,26 @@ PARA LA PROXIMA VE EL VIDEO DE Async- Await que es una manera de conbinar promes
 esta es la 2da manera de trabajar peticiones asincronas Ajax con los navegadores web
 
 <h5>AJAX: Api Fetch + Async-Await</h5>
+
 el codigo se ve mas limpio
 el objeto Error "Error" de js solo recibe mensajes textuales
 los errores en JS no aceptan objetos
 el "Throw" es como un retur que envia el flujo de la programacion al Catch.
 if (!res.ok)throw new Error("Ocurrio un error al solicitar los Datos");
 formamos un objeto
+<hr>
+<h3>librerias **externas**</h3>
+
+<h4>Jquery.Ajax()</h4>
+
+javaScript ya soporta toda esas caracteristicas que en un principio nos ayudaba  _Jquery_
+
+<h4>Axios</h4>
+
+esta basada en promesas que nos ayuda mucho a la hora de hacer peticiones Ajax
+
+> console.log("Estamos en el Catch", err.response); 
+está en la documentacion de Axios
+https://github.com/axios/axios?tab=readme-ov-file#handling-errors 
+
 
