@@ -116,3 +116,64 @@ axios se ha vuelto un estandar.
 para que vean que el resultado lo podemos hacer con cualquiera de estas 5 mecanismos 
 Axios lee peticiones apis publicas  como tambien de archivos locales
 
+<h2>Introduccion de API REST: Introduccion</h2>
+
+es la forma como se estan trabajando tanto las aplicaciones web como las aplicaciones nativas, es una nueva arquitectura.
+MVC fue muy popular.
+
+API.(aplication programing interface) api de geolicaciolacion , api para la camara web
+
+**dentro del mundo de las apis  tenemos apis nativas(el motor de js trae integrado para acceder al DOM la camara web, bateria, geolocalizacion) y apis externas(api de github. no es mas que una URL conocido como end points, api de fb).
+
+<p>
+ Las APIS externas generalmente te dan una ducumentacion (rutas, endPoints) amazon tiene sus propias apis externas son externas por que no son nativas del navegador(DOM) LOS HACEN 3ras personas.
+
+ _¿que carajos es REST?_ 
+ un servicio Rest es un conjunto de restriccciones con las que podemos crear una arquitectura de software como los frameworks modernos eje: vue.js, react, angular,  hemos ido migrando del modelo vista controlador a un esquema de arquitectura basada en REST
+ **rest** se basa en el protocolo *HTTP*
+ caracteristicas para que un sistema se considere tipo *REST O RESTFULL* 
+
+ - la relacion cliente servidor _estan desacoplados al cliente no le interesa saber los detalles de como se implemento el lado del servidor que le esta devolviendo la respuesta en formato JSON o en formato XML y al servidor no le interesa como el cliente vaya a utilizar  esta informacion para pintarla en los datos_
+
+ - las Apis res son sin estado _cada peticion recibida por el servidor se va manejar de manera independiente lo que evita que mantenga seciones conectadas como para hacer varias peticiones al mismo tiempo_
+
+ - Cacheable _que debe haber un sistema de almacenamiento en cache para evitar repetitivas conecciones hacia un mismo recurso del servidor y esto pues va inpactar en el rendimiento de las aplicaciones por eso las aplicaciones basadas en esta arquitectura mas con todo estos frameworks reactivos aceleran mucho el tiempo de carga_
+
+ - Mantener una interfaz uniforme _una interfaz generica que permita la administracion entre la interaccion del cliente y el servidor,quiere decier que para cada peticion va existir una url unica y con las caracteristicas de como nosotros le vamos a enviar la informacion esto en el mundo de las APIs se le conoce como ENDPOINTS _
+
+ - Una API rest  bien diseñada debe tener un *sistema de capas* _que de lado del servidor debe haber varias capas a la hora de implementarla para estar previstos si mas adelante si ese desarrollo escala, para que la manera en que haya sido programada permita la escalabilidad, capas para monitorizar el rendimiento y la capa de seguridad_
+
+ entonces actualmente en el mundo del desarrolo web este va ser el modelo de arquitectura con el que vamos a estar trabajando
+
+ *¿las Apis de tipo rest son el nuevo CRUD?*
+
+ el crud son las operaciones que puedo hacer a una base de datos
+*en un sistema MVC*
+el controlador determina todo, (epoca de frameworks como laravel, codeigniter{bueno})
+_todo pasaba por el controlador ej: base de datos, codigo html mesclado con php era donde teniamos vistas mescladas de codigo front end con codigo backend para generar dinamicamente las a plicaciones_
+
+*las apiRest trabaja con el protocolo HTTP*
+
+Operaciones CRUD	Peticiones REST
+<br>
+INSERT	            POST
+SELECT	            GET
+UPDATE	            PUT
+DELETE	            DELETE
+
+*ventajas de API REST* 
+como el cliente y el servidor estan desacoplados yo puedo decidir en que base de datos yo puedo trabajar si es SQL o no SQL si es java, si es node o es php si es pyton, si es rubic yo construyo mi API de tipo rest y lo unico que yo voy a hacer es exponer al cliente la informacion el formate JSON o XML que son 2 formatos de intercambio de informacion validados por lenguajes y tecnologias, pues me importa si el front que me está haciendo la peticion es un front en una aplicacion de android una aplicacion para IOS windows, web etc
+
+_nosotros podemos tener diferentes fronts pero la parte del modelado de la base de datos y de la api me sirve para todos estos esenarios_ uber, fb, nosotros podemos ver desde un navegador web la interfaz de nuestro perfil; si tu estas en tu sistema operativo y te vas a la tienda de aplicaciones tambien puedes instalarte el cliente de estas aplicaciones entonces ahi ya seria el front de escritorio pero tambien te puedes ir a tu movil e instalar  la app nativa de ese servicio.  lo unico que cambia es el front(cliente) pero  los datos que se consumen estan centralizados en la misma api de tipo rest
+
+*otro esquema  muy similar a la arquitectura tipo rest es GRAPHQL*
+es otra opcion 
+
+en videos usamos las apis falsa de PLACEHOLDER. pero no te permite insertar datos ni eliminarlos, pero hay un proyecto llamado JSON serve para aprender a realizar las peticiones
+
+vamos a simular una API pero localmente para usar JSON_SERVE tienes que tener instalado node.js 
+
+lo primero que vamos a hacer es probar la api falsa y para eso vamos a utilizar herramientas que son clientes para hacer pruebas de apis un cliente muy famoso es https://www.postman.com/ hay en version gratuita. 
+Hay otro cliente de api: 
+https://insomnia.rest/  lo descargamos [CORE]
+</p>
