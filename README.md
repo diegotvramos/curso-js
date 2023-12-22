@@ -116,7 +116,9 @@ axios se ha vuelto un estandar.
 para que vean que el resultado lo podemos hacer con cualquiera de estas 5 mecanismos 
 Axios lee peticiones apis publicas  como tambien de archivos locales
 
-<h2>Introduccion de API REST: Introduccion</h2>
+<h2>APIs REST</h2>
+
+<h3>Introduccion de API REST: Introduccion</h3>
 
 es la forma como se estan trabajando tanto las aplicaciones web como las aplicaciones nativas, es una nueva arquitectura.
 MVC fue muy popular.
@@ -177,3 +179,58 @@ lo primero que vamos a hacer es probar la api falsa y para eso vamos a utilizar 
 Hay otro cliente de api: 
 https://insomnia.rest/  lo descargamos [CORE]
 </p>
+
+<h3>API REST: JSON Server - API falsa local -</h3>
+
+primero instalamos node. 
+lo comprobamos poniendo el siguiente comando en la terminal. `nove -v`
+
+y vamos a la pagina jsonplaceholder y despues vamos al enlace que dice json-server y 
+https://github.com/typicode/json-server 
+
+la base de datos(estructura de JSON) que hagamos debe incluir si o si un ID.
+
+escriber 0_asse +{tab o tabulador} y lo va completando
+
+json-server --watch 0_assets/db.json
+
+
+http://localhost:3000
+
+al entrar a este link nos muestra una interfaz web con los detalles de mi db.json
+
+es muy importante que dejas corriendo la ejecucion de ese servidor.
+
+para detener el servidor ejecutas en la terminal ctrl+c
+
+![ctrl +c para detener](/0_assets/img_server.JPG)
+
+CLI USAGE
+json-server [options] <source>
+
+Options:
+  --config, -c       Path to config file           [default: "json-server.json"]
+  --port, -p         Set port                                    [default: 3000]
+  --host, -H         Set host                             [default: "localhost"]
+  --watch, -w        Watch file(s)                                     [boolean]
+  --routes, -r       Path to routes file
+  --middlewares, -m  Paths to middleware files                           [array]
+  --static, -s       Set static files directory
+  --read-only, --ro  Allow only GET requests                           [boolean]
+  --no-cors, --nc    Disable Cross-Origin Resource Sharing             [boolean]
+  --no-gzip, --ng    Disable GZIP Content-Encoding                     [boolean]
+  --snapshots, -S    Set snapshots directory                      [default: "."]
+  --delay, -d        Add delay to responses (ms)
+  --id, -i           Set database id property (e.g. _id)         [default: "id"]
+  --foreignKeySuffix, --fks  Set foreign key suffix, (e.g. _id as in post_id)
+                                                                 [default: "Id"]
+  --quiet, -q        Suppress log messages from output                 [boolean]
+  --help, -h         Show help                                         [boolean]
+  --version, -v      Show version number                               [boolean]
+
+Examples:
+  json-server db.json
+  json-server file.js
+  json-server http://example.com/db.json
+
+https://github.com/typicode/json-server
