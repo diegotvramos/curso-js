@@ -186,13 +186,15 @@ primero instalamos node.
 lo comprobamos poniendo el siguiente comando en la terminal. `nove -v`
 
 y vamos a la pagina jsonplaceholder y despues vamos al enlace que dice json-server y 
-https://github.com/typicode/json-server 
+json-server --watch db.json
 
 la base de datos(estructura de JSON) que hagamos debe incluir si o si un ID.
 
 escriber 0_asse +{tab o tabulador} y lo va completando
 
-json-server --watch 0_assets/db.json
+> json-server --watch 0_assets/db.json
+
+>json-server -w -p 5555  0_assets/db.json  [para que me levante el servicio en otro puerto]
 
 
 http://localhost:3000
@@ -234,3 +236,26 @@ Examples:
   json-server http://example.com/db.json
 
 https://github.com/typicode/json-server
+
+<h3>API REST: Consumo de datos con cliente REST -</h3>
+
+![metodo post](/0_assets/insomnia_post.JPG)
+
+lo ideal es que vayas creando carpetas por proyecto
+
+json serve tiene la capacidad de sobreescribir todo los cambios que hagamos en ese archivo JSON que es como nuestra base de datos
+
+para ver los cambios debes de presionar en la peticion(Request) despues enviar presionando el boton (Send)
+
+*Recomendacion:*
+<p>
+  Cuando van a empesar con un proyecto y que ese proyecto lo van a trabajar mediante una arquitectura de tipo API rest no es ideal tirar 
+  
+  lineas de codigo con js, react, vue lo primero es agarar un software como _insomnia o postman_ y primero ver que te salgan las 
+  
+  peticiones que estas mandado los datos correctos, por que depurar esto mientras estamos haciendo codigo se puede volver caotico. 
+
+  cuando empieces a interactuar con diferentes apis eje: apis para obtener informacion, parcelas de pago con la api de algun comercio
+
+  electronico, o la api de un sitio hecho en word press. este software de insomina es muy util, tiene una session para autentificacion los querys son parametros que puedes pasar por la URL todas esas opciones las vas a usar dependiendo de las reglas que tenga la api con la que tu vayas a estar trabajando
+</p>
