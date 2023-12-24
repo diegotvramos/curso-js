@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD API REST AJAX</title>
+    <title>CRUD API REST AJAX (xmlhttpreques)</title>
 </head>
 <body>
     <h1>CRUD API REST AJAX</h1>
@@ -16,7 +16,7 @@
                 <input type="text" name="constelacion" placeholder="constelación" required>
                 <br>
                 <input type="submit" value="Enviar">
-                <input type="hidden" name="action">
+                <input type="hidden" name="id">
             </form>
         </article>
         <article>
@@ -65,7 +65,62 @@
                 console.log($title);
                 console.log($template);
                 console.log($fragment);
+                //funcion expresada
+        const ajax=(options)=>{
+            //hacemos la desestructuracion
+            //url: es un string, method: es un string, data: es un object, succes y error son Funciones
+            let {url, method, success, error, data}=options;
+            const xhr=new XMLHttpRequest();
 
+            xhr.addEventListener("readystatechange", e=>{
+                if (xhr.readyState!==4)return;
+                if (xhr.status>=200&&xhr.status<300) {
+                    let json =JSON.parse(xhr.responseText); 
+                    success(json);
+                }else{
+                    let message=xhr.statusText|| "Ocurrio un error";
+                    error(`Error ${xhr.status}: ${message}`);
+                }
+            });
+
+            xhr.open(method || "GET", url);
+            xhr.setRequestHeader("Content-type", "aplication/json; charset=utf-8");
+            xhr.send(JSON.stringify(data));
+
+        }
+    
+        const getAll =()=>{
+            ajax({
+                //method:"GET",
+                url:"http://localhost:3000/santos",
+                success:(res)=>{
+                    console.log(res);
+                    res.forEach(el => {
+                         //nombre: viene de la api falsa
+                        $template.querySelector(".name").textContent=el.nombre;
+                        $template.querySelector(".constellation").textContent=el.constelacion;
+                        $template.querySelector(".edit").dataset.id=el.id;
+                        // me voy a invertar un atributo que se llame dataset.name: data-name en html
+                        $template.querySelector(".edit").dataset.name=el.nombre;
+                        // me voy a inventar dataset.constellation
+                        $template.querySelector(".edit").dataset.constellation=el.constelacion;
+                        $template.querySelector(".delete").dataset.id=el.id;
+
+                        let $clone=d.importNode($template, true);
+                        $fragment.appendChild($clone);
+                    });
+
+                    $table.querySelector("tbody").appendChild($fragment);
+
+                },
+                error:(err)=>{
+                    console.warn(err);
+                    $table.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`);
+                },
+                //data:null
+            })
+        }
+        d.addEventListener("DOMContentLoaded",getAll);
     </script>
 </body>
 </html>

@@ -185,7 +185,10 @@ https://insomnia.rest/  lo descargamos [CORE]
 primero instalamos node. 
 lo comprobamos poniendo el siguiente comando en la terminal. `nove -v`
 
-y vamos a la pagina jsonplaceholder y despues vamos al enlace que dice json-server y 
+y vamos a la pagina jsonplaceholder y despues vamos al enlace que dice json-server y
+
+levantamos el servidor (Start JSON Server).
+
 json-server --watch db.json
 
 la base de datos(estructura de JSON) que hagamos debe incluir si o si un ID.
@@ -263,4 +266,18 @@ para ver los cambios debes de presionar en la peticion(Request) despues enviar p
 <h2>CRUD API REST AJAX</h2>
 
 no es ideal estar insertando al DOM por cada elemento que venga de la API o de la base de datos o de un areglo.
-lo ideal es guardar en un fragmento y luego al final luego que el fragmento esté lleno insertar ese fragmento al dom 
+lo ideal es guardar en un fragmento y luego al final luego que el fragmento esté lleno insertar ese fragmento al dom
+
+<h3>API REST: CRUD con AJAX (1/2) </h3>
+
+primero levamtamos el servidor(json-server --watch 0_assets/db.json)
+
+insomnnia es un cliente de tipo rest, en una peticion _post_ el cuerpo era en formato JSON, cada peticion que nosotros hagamos a un servidor a travez de ajax va tener el cuerpo y cabezera (asi como un documento html)
+
+como la API de Jserver está esperando codigo en formato JSON sí nosotros no le especificamos, el valor por defecto es texto plano *hay que especificar el tipo de contenido que vamos a enviar*
+
+ese id lo voy almacenar en el boton en un data atribut que se va llamar_id_
+![codigo generado dinamicamente](/0_assets/codigo%20generado%20dinamicamente.JPG) 
+
+los data Attributs hace que tu te traigas varios valores en un boton por ejemplo
+estoy utilizado la tecnica de los templates que es una tecnica bastante eficiente lo hubieran hecho con INNER.html
