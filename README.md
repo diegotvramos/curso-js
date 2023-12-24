@@ -259,3 +259,8 @@ para ver los cambios debes de presionar en la peticion(Request) despues enviar p
 
   electronico, o la api de un sitio hecho en word press. este software de insomina es muy util, tiene una session para autentificacion los querys son parametros que puedes pasar por la URL todas esas opciones las vas a usar dependiendo de las reglas que tenga la api con la que tu vayas a estar trabajando
 </p>
+
+<h2>CRUD API REST AJAX</h2>
+
+no es ideal estar insertando al DOM por cada elemento que venga de la API o de la base de datos o de un areglo.
+lo ideal es guardar en un fragmento y luego al final luego que el fragmento esté lleno insertar ese fragmento al dom 
