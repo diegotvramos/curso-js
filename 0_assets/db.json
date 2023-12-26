@@ -29,10 +29,34 @@
       "id": 8,
       "nombre": "Saga",
       "constelacion": "Geminis"
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "nombre": "allie",
+      "constelacion": "aries",
+      "id": 11
+    },
+    {
+      "nombre": "Aldebaran",
+      "constelacion": "tauro",
+      "id": 12
+    },
+    {
+      "nombre": "SAGA",
+      "constelacion": "Geminis",
+      "id": 13
+    },
+    {
+      "nombre": "mascara de muerte",
+      "constelacion": "canser",
+      "id": 14
     }
   ],
-
-
   "dioses": [
     {
       "id": 1,

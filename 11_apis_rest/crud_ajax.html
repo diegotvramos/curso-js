@@ -16,6 +16,10 @@
                 <input type="text" name="constelacion" placeholder="constelación" required>
                 <br>
                 <input type="submit" value="Enviar">
+                <!-- cuando el elemento tenga un elemento vacio entonces significa que haremos la operacion del create utilizaremos el metodo POST
+                    Cuando ese elemento ID venga completado  y eso va hacer accion cuando nosotros le demos botones a editar, entonces
+                    ahi sabremos que lo que quiero hacer es una peticion de tipo PUT para hacer la actualizacion
+                -->
                 <input type="hidden" name="id">
             </form>
         </article>
@@ -66,7 +70,7 @@
                 console.log($template);
                 console.log($fragment);
                 //funcion expresada
-        const ajax=(options)=>{
+        const ajax = (options)=>{
             //hacemos la desestructuracion
             //url: es un string, method: es un string, data: es un object, succes y error son Funciones
             let {url, method, success, error, data}=options;
@@ -74,8 +78,8 @@
 
             xhr.addEventListener("readystatechange", e=>{
                 if (xhr.readyState!==4)return;
-                if (xhr.status>=200&&xhr.status<300) {
-                    let json =JSON.parse(xhr.responseText); 
+                if (xhr.status >= 200&&xhr.status<300) {
+                    let json = JSON.parse(xhr.responseText); 
                     success(json);
                 }else{
                     let message=xhr.statusText|| "Ocurrio un error";
@@ -84,7 +88,7 @@
             });
 
             xhr.open(method || "GET", url);
-            xhr.setRequestHeader("Content-type", "aplication/json; charset=utf-8");
+            xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
             xhr.send(JSON.stringify(data));
 
         }
@@ -121,6 +125,74 @@
             })
         }
         d.addEventListener("DOMContentLoaded",getAll);
+
+        d.addEventListener("submit", (e)=>{
+            if (e.target===$form) {
+                e.preventDefault();
+
+                if (!e.target.id.value) {
+                    //Create-POST
+                    //hacemos una instancia de nuestra funcion ajax
+                    ajax({
+                        url:"http://localhost:3000/santos",
+                        method:"POST",
+                        //recarga de la pagina para que se actualize y asi poder ver el agregado
+                        success:(res)=>location.reload(),
+                        error:()=> $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
+                        // una de las caracteristicas de JSON serve es que yo no necesito especificar el ID fica el ultimo y agrega uno nuevo
+                        data:{
+                            // e.target es el formulario
+                            nombre: e.target.nombre.value,
+                            constelacion: e.target.constelacion.value,
+                        }
+
+                    });
+                }else{
+                    //Update-PUT
+                    ajax({
+                        //del boton oculto
+                        url:`http://localhost:3000/santos/${e.target.id.value}`,
+                        method:"PUT",               
+                        success:(res)=>location.reload(),
+                        error:()=> $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
+                         data:{
+                            // e.target es el formulario
+                            nombre: e.target.nombre.value,
+                            constelacion: e.target.constelacion.value
+                        }
+
+                    });
+                }
+            }
+        });
+
+        //ahí seria programar el evento CLick tanto para los botones de editar y eliminar
+        // yo aca podria tener n cantidad de botones, vean la importancia de la DELEGACION
+        // el evento lo vamos a asignar al Document
+
+        d.addEventListener("click",(e)=>{
+            if (e.target.matches(".edit")) {
+                alert("Presionaste el boton Editar");
+                $title.textContent= "EDITAR Santo";
+                $form.nombre.value=e.target.dataset.name;
+                $form.constelacion.value=e.target.dataset.constellation;
+                $form.id.value=e.target.dataset.id;
+            }
+            if (e.target.matches(".delete")) {
+                let isDelete= confirm(`¿Estas seguro de eliminar el id ${e.target.dataset.id}?`);
+                
+                if (isDelete) {
+                    //delete-DELETE
+                    ajax({
+                        //del botorn eliminar.
+                        url:`http://localhost:3000/santos/${e.target.dataset.id}`,
+                        method:"DELETE",
+                        success:(res)=>location.reload(),
+                        error: ()=> alert(err)
+                    });
+                }
+            }
+        });
     </script>
 </body>
 </html>

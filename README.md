@@ -281,3 +281,19 @@ ese id lo voy almacenar en el boton en un data atribut que se va llamar_id_
 
 los data Attributs hace que tu te traigas varios valores en un boton por ejemplo
 estoy utilizado la tecnica de los templates que es una tecnica bastante eficiente lo hubieran hecho con INNER.html
+
+<h3>API REST: CRUD con AJAX (2/2)</h3>
+
+le puse al boton EDIT como DATA attributs tanto el ID  comoel NAME COMO LA CONSTELACION PUES VAMOS HACER LO que justamente voy a extraer esos DATA- ATRIBUTS del boton y se los voy aponer a los elementos del formulario
+
+el proceso de la peticion ajax es de estos 4 o 5 pasos.
+
+>-  la instancia del objeto.
+>-  la programacion, y el sistener.
+>-  la apertura.
+>-  las cabezeras.
+>-  y el envio de la peticion como tal.
+
+pero nos evitamos estar generando por cada peticion del crud dota la anterior operacion gracias al encapsularlo en la funcion AJAX
+
+NO OLVIDES LEVANTAR EL SERVIDOR. EL SERVER JSON
