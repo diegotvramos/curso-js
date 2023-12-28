@@ -297,3 +297,10 @@ el proceso de la peticion ajax es de estos 4 o 5 pasos.
 pero nos evitamos estar generando por cada peticion del crud dota la anterior operacion gracias al encapsularlo en la funcion AJAX
 
 NO OLVIDES LEVANTAR EL SERVIDOR. EL SERVER JSON
+
+<h3>API REST: CRUD con Fetch (1/2)</h3>
+
+´//programacion que va afectar al DOM.
+  json.forEach((el) => {
+  // dentro del template busca el selector con la clase NAME y en su propiedad TEXTCONTENT pon el .NOMBRE.
+  $template.querySelector(".name").textContent=el.nombre;´

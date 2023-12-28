@@ -19,6 +19,7 @@
                 <input type="hidden" name="id">
             </form>
         </article>
+
         <article>
             <h2>Ver santos</h2>
             <table class="crud-table">
@@ -42,6 +43,8 @@
             </table>
         </article>
     </section>
+
+
     <template id="crud-template">
         <tr>
             <td class="name"></td>
@@ -52,13 +55,49 @@
             </td>
     </tr>
     </template>
+
+
+
     <script>
         const d= document,
                 $table=d.querySelector(".crud-table"),
                 $form=d.querySelector(".crud-form"),
                 $title=d.querySelector(".crud-title"),
-                $template=d.getElementById(".crud-template").content,
+                $template=d.getElementById("crud-template").content,
                 $fragment=d.createDocumentFragment();
+
+        const getAll=async()=>{
+            try {
+                //cuando no especificamos el segundo parametro significa que estamos haciendo la peticion por el metodo GET
+                let res =await fetch("http://localhost:3000/santos")
+                json= await res.json();
+
+                if (!res.ok) throw {status:res.status, statusText:res.statusText};
+                console.log( json);
+
+                //programacion que va afectar al DOM.
+                json.forEach((el) => {
+                    // dentro del template busca el selector con la clase NAME y en su propiedad TEXTCONTENT pon el .NOMBRE.
+                    $template.querySelector(".name").textContent=el.nombre;
+                    $template.querySelector(".constellation").textContent=el.constelacion;
+                    $template.querySelector(".edit").dataset.id=el.id;                  
+                    $template.querySelector(".edit").dataset.name=el.nombre;
+                    $template.querySelector(".edit").dataset.constellation=el.constelacion;
+                    $template.querySelector(".delete").dataset.id=el.id;
+
+                    let $clone=d.importNode($template, true);
+                    $fragment.appendChild($clone);
+                });
+
+                $table.querySelector("tbody").appendChild($fragment);
+
+            } catch (err) {
+                let message = err.statusText || "Ocurio un error";// de anera predeterminada va mostrar el mensaje: "Ocurio un error"
+                $table.insertAdjacentHTML("afterend",`<p><b>Error  ${err.status}: ${message}</b></p>`);
+
+            }
+        }        
+        d.addEventListener("DOMContentLoaded",getAll);        
 
     </script>
 </body>
