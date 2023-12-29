@@ -312,3 +312,8 @@ NO OLVIDES LEVANTAR EL SERVIDOR. EL SERVER JSON
 
   en cada peticion un TRY CATCH
   no seas flojo y captura el error
+
+<h3>API REST: CRUD con Axios: (1/2)</h3>
+
+llamamos a la libreria.
+https://github.com/axios/axios 
