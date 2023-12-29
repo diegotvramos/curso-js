@@ -31,9 +31,13 @@
       "constelacion": "Geminis"
     },
     {
+      "nombre": "Aioria",
+      "constelacion": "LEO",
       "id": 9
     },
     {
+      "nombre": "Shaka",
+      "constelacion": "Virgo",
       "id": 10
     },
     {
@@ -55,6 +59,11 @@
       "nombre": "mascara de muerte",
       "constelacion": "canser",
       "id": 14
+    },
+    {
+      "nombre": "dohko",
+      "constelacion": "libra",
+      "id": 15
     }
   ],
   "dioses": [

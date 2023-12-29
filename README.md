@@ -304,3 +304,11 @@ NO OLVIDES LEVANTAR EL SERVIDOR. EL SERVER JSON
   json.forEach((el) => {
   // dentro del template busca el selector con la clase NAME y en su propiedad TEXTCONTENT pon el .NOMBRE.
   $template.querySelector(".name").textContent=el.nombre;´
+
+  >- primero hacemos la lectura y la visualizacion de los datos obtenidos de la API.
+  >- creacion
+  >- actualizacion (Editar)
+  >- eliminacion.
+
+  en cada peticion un TRY CATCH
+  no seas flojo y captura el error
