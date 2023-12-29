@@ -317,3 +317,25 @@ NO OLVIDES LEVANTAR EL SERVIDOR. EL SERVER JSON
 
 llamamos a la libreria.
 https://github.com/axios/axios 
+
+<h3>API REST: CRUD con Axios: (2/2)</h3>
+
+posiblemente tengan problemas de agregar y editar con el JSON-SERVER  -  AXIOS , si les pasa el error posiblemente sea porque en el headers les falta poner el "Content-Type"  si observan bien en la clase el "Type" esta en minúscula. _Las cabezeras es mejor copiarlas de INSOMNIA._
+
+>- POST- AGREGAR- UPDATE
+>- 
+
+
+para un mejor manejo de la memoria, usaremos la _Delegacion de eventos_ por que yo no sé cuantos botones tengo.
+
+ `// yo se que el objeto que origino el evento, si es el formulario trae un input ID quiero que 
+  //revises ese valor si es vacio, hacemos un create.
+  if (!e.target.id.value)`
+
+  `// con esto le estmos poniendo un ID al boton hidden.
+   $form.id.value=e.target.dataset.id`
+
+    les cuento que en un proyecto donde la app  la iban a estar usando VIA web pero en ipads viejos, FETCH NO FUNCIONABA.
+     y use AXIOS  Y FUNCIONÓ BIEN sin saturarnos
+
+nunca digan no a las cosas, mas bien evaluen y despues decidad 😉

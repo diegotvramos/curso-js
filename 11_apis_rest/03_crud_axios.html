@@ -16,7 +16,7 @@
                 <input type="text" name="constelacion" placeholder="constelación" required>
                 <br>
                 <input type="submit" value="Enviar">
-                <input type="hidden" name="id">
+                <input type="radio" name="id">
             </form>
         </article>
 
@@ -66,7 +66,7 @@
 
         const getAll = async()=>{
             try {
-                let res = await axios.get("http://localhost:3000/santoss"),
+                let res = await axios.get("http://localhost:3000/santos"),
                     json = await res.data;
                     console.log(json);
                 json.forEach((el) => {
@@ -87,9 +87,97 @@
                 let message = err.response.statusText || "Ocurió un error"
                 $table.insertAdjacentHTML("afterend",`<p><b>${err.response.status}:${message}</b></p>`)
             }
-        }        
-        d.addEventListener("DOMContentLoaded",getAll)
+        }
 
+        d.addEventListener("DOMContentLoaded",getAll);
+
+        d.addEventListener("submit", async (e)=>{
+            if (e.target===$form) {
+                e.preventDefault();
+
+                // yo se que el objeto que origino el evento, si es el formulario trae un input ID quiero que 
+                //revises ese valor si es vacio, hacemos un create.
+                if (!e.target.id.value) {
+                    //Create-POST
+                    try {
+                        let options={
+                                    method: "POST",
+                                    headers:{
+                                    "Content-Type": "application/json; charset=utf-8"
+                                    },
+                                    data:JSON.stringify({
+                                        nombre:e.target.nombre.value,
+                                        constelacion:e.target.constelacion.value
+                                    })
+                        },
+                        res =await axios("http://localhost:3000/santos",options),
+                        json= await res.data;
+
+                        location.reload();
+                        
+                    } catch (err) {
+                        let message = err.response.statusText || "Ocurio un error";
+                        $form.insertAdjacentHTML("afterend",`<p><b>Error  ${err.response.status}: ${message}</b></p>`);
+                    }
+                }else{
+                    //Update-PUT
+                    try {
+                        let options={
+                                    method: "PUT",
+                                    headers:{
+                                    "Content-Type": "application/json; charset=utf-8"
+                                    },
+                                    data:JSON.stringify({
+                                        nombre:e.target.nombre.value,
+                                        constelacion:e.target.constelacion.value
+                                    })
+                        },
+                        res =await axios(`http://localhost:3000/santos/${e.target.id.value}`,options),
+                        json= await res.data;
+
+                        location.reload();
+                        
+                    } catch (err) {
+                        let message = err.response.statusText || "Ocurio un error";
+                        $form.insertAdjacentHTML("afterend",`<p><b>Error  ${err.response.status}: ${message}</b></p>`);
+                    }
+                }
+            }
+        });
+
+        d.addEventListener("click", async (e)=>{
+            if (e.target.matches(".edit")) { // cuando el objeto que origina el click coincida en el selector con la clase .EDIT
+                $title.textContent= "EDITAR Santo";
+                $form.nombre.value=e.target.dataset.name;
+                $form.constelacion.value=e.target.dataset.constellation;
+                // con esto le estmos poniendo un ID al boton hidden.
+                $form.id.value=e.target.dataset.id;
+            }
+            if (e.target.matches(".delete")) {
+                let isDelete= confirm(`¿Estas seguro de eliminar el id ${e.target.dataset.id}?`);
+
+                if (isDelete) {
+                    //Delete-DELETE
+                    try {
+                        let options={
+                                    method: "DELETE",
+                                    headers:{
+                                    "Content-Type": "application/json; charset=utf-8"
+                                    },
+                        },
+                        //Ojo, estoy accediendo al dataset.
+                        res =await axios(`http://localhost:3000/santos/${e.target.dataset.id}`,options),
+                        json= await res.data;
+
+                        location.reload();
+                        
+                    } catch (err) {
+                        let message = err.response.statusText || "Ocurio un error";
+                     alert(`Error ${err.response.status}: ${message}`)
+                    }
+                }
+            }
+        })
     </script>
 </body>
 </html>
