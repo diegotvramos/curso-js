@@ -44,13 +44,13 @@ son peticiones del protocolo HTTP es en el que tenemos internet
 (verbos del procolo HTTP similar a CRUD)
 
 
-<h4> accediendo a la api de Github</h4>
+#### accediendo a la api de Github
 puedes acceder de esta manera al **jSON** de mi cuenta de git hub.
 https://api.github.com/users/diegotvramos 
 
 usa un formateador de json es decir usa una extencion de navegador llamada: _JSON FORMATTER_
-<h3>Metodos **nativos**</h3>
-<h4>AJAX: OBJETO XMLHttpRequest</h4>
+### Metodos **nativos**
+#### AJAX: OBJETO XMLHttpRequest
 MUY IMPORTANTE.
 recuerda trabajar con el protocolo HTTP, esto lo obtenemos usando el servidor local liveServer para que levante tu entorno en un servidor web  y no el protocolo FILE(es la ruta desde el disco duro) Ajax no va funcionar.
 
@@ -71,7 +71,7 @@ el el metodo por el cual vamos a comunicarnos xht.open()
 
 
  https://developer.mozilla.org/es/docs/Web/HTTP/Status 
-<h5>estados de peticion</h5>
+##### estados de peticion
 
 la ruta 404 no existe 
 ![Esta es una imagen de ejemplo](/10_Ajax/404.JPG)
@@ -81,18 +81,18 @@ lo que nos interesa son los:
 
  tu puedes crear tus propios archivos Json en el mundo laboral vas a tener que consumir (aplicaciones)apis que esten en el internet
 
-<h4>AJAX: Api Fetch</h4>
+#### AJAX: Api Fetch
 
 _tras bambalinas usa OBJETO XMLHttpRequest _
 
-> fetch("https://jsonplaceholder.typicode.com/users").then().catch().finally();
->> fetch("", {method:"GET"}) puede recibir un parametro de opciones
+> ``fetch("https://jsonplaceholder.typicode.com/users").then().catch().finally();``
+>> ``fetch("", {method:"GET"})`` puede recibir un parametro de opciones
 fetch trabaja con un mecanismo de promesas
 se simplifica el codigo, para eso debemos entender las promesas entender el THEN, CATCH, FINALLY
 PARA LA PROXIMA VE EL VIDEO DE Async- Await que es una manera de conbinar promesas con funciones asincronas que se esperan a la respuesta del servidor
 esta es la 2da manera de trabajar peticiones asincronas Ajax con los navegadores web
 
-<h5>AJAX: Api Fetch + Async-Await</h5>
+##### AJAX: Api Fetch + Async-Await
 
 el codigo se ve mas limpio
 el objeto Error "Error" de js solo recibe mensajes textuales
@@ -100,14 +100,15 @@ los errores en JS no aceptan objetos
 el "Throw" es como un retur que envia el flujo de la programacion al Catch.
 if (!res.ok)throw new Error("Ocurrio un error al solicitar los Datos");
 formamos un objeto
-<hr>
-<h3>librerias **externas**</h3>
 
-<h4>Jquery.Ajax()</h4>
+*** 
+### librerias **externas**
+
+#### Jquery.Ajax()
 
 javaScript ya soporta toda esas caracteristicas que en un principio nos ayudaba  _Jquery_
 
-<h4>Axios</h4>
+#### Axios
 
 esta basada en promesas que nos ayuda mucho a la hora de hacer peticiones Ajax
 
@@ -116,7 +117,7 @@ está en la documentacion de Axios
 https://github.com/axios/axios?tab=readme-ov-file#handling-errors 
 
 
-<h4>Ajax: libreria Axios & Async-Await</h4>
+#### Ajax: libreria Axios & Async-Await
 
 al igual que fetch puede que te de cononflicto esto de tener codigo concateneado en (thens) entonces podemos hacer uso de funciones asincronas para mejorar la legibilidad
 
@@ -227,30 +228,28 @@ para detener el servidor ejecutas en la terminal ctrl+c
 CLI USAGE
 json-server [options] <source>
 
-Options:    
-| --config, -c       Path to config file                                         | [default: "json-server.json"]
-| --port, -p         Set port                                                    | [default: 3000]
-| --host, -H         Set host                                                    | [default: "localhost"]
-| --watch, -w        Watch file(s)                                               | [boolean]
-| --routes, -r       Path to routes file | 
-| --middlewares, -m  Paths to middleware files                                   | [array]
-| --static, -s       Set static files directory
-| --read-only, --ro  Allow only GET requests                                     | [boolean]
-| --no-cors, --nc    Disable Cross-Origin Resource Sharing                       | [boolean]
-| --no-gzip, --ng    Disable GZIP Content-Encoding                               | [boolean]
-| --snapshots, -S    Set snapshots directory                                     | [default: "."]
-| --delay, -d        Add delay to responses (ms) | 
-| --id, -i           Set database id property (e.g. _id)                         | [default: "id"]
-| --foreignKeySuffix, --fks  Set foreign key suffix, (e.g. _id as in post_id)    | [default: "Id"]
-| --quiet, -q        Suppress log messages from output                           | [boolean]
-| --help, -h         Show help                                                   | [boolean]
-| --version, -v      Show version number                                         | [boolean]
+Options:  
 
 | Columna 1 | Columna 2 | Columna 3 |
 | --------- | --------- | --------- |
-| A         | B         | C         |
-| D         | E         | F         |
-| G         | H         | I         |
+| --config, -c                  | Path to config file                                         | [default: "json-server.json"] |
+| --port, -p                    | Set port                                                    | [default: 3000] |
+| --host, -H                    | Set host                                                    | [default: "localhost"] |
+| --watch, -w                   | Watch file(s)                                               | [boolean] |
+| --routes, -r                  | Path to routes file                                         | |
+| --middlewares, -m             | Paths to middleware files                                   | [array] |
+| --static, -s                  | Set static files directory                                  | |
+| --read-only, --ro             | Allow only GET requests                                     | [boolean] |
+| --no-cors, --nc               | Disable Cross-Origin Resource Sharing                       | [boolean] |
+| --no-gzip, --ng               | Disable GZIP Content-Encoding                               | [boolean] |
+| --snapshots, -S               | Set snapshots directory                                     | [default: "."] |
+| --delay, -d                   | Add delay to responses (ms)                                 | |
+| --id, -i                      | Set database id property (e.g. _id)                         | [default: "id"] |
+| --foreignKeySuffix, --fks             | Set foreign key suffix, (e.g. _id as in post_id)    | [default: "Id"] |
+| --quiet, -q                   | Suppress log messages from output                           | [boolean] |
+| --help, -h                    | Show help                                                   | [boolean] |
+| --version, -v                 | Show version number                                         | [boolean] |
+
 
 Examples:
 * json-server db.json
@@ -319,10 +318,14 @@ NO OLVIDES LEVANTAR EL SERVIDOR. EL SERVER JSON
 
 ### API REST: CRUD con Fetch (1/2)
 
-´//programacion que va afectar al DOM.
+```js
+  //programacion que va afectar al DOM.
   json.forEach((el) => {
   // dentro del template busca el selector con la clase NAME y en su propiedad TEXTCONTENT pon el .NOMBRE.
-  $template.querySelector(".name").textContent=el.nombre;´
+  $template.querySelector(".name").textContent=el.nombre;
+```
+
+
 
   >- primero hacemos la lectura y la visualizacion de los datos obtenidos de la API.
   >- creacion
@@ -348,15 +351,18 @@ posiblemente tengan problemas de agregar y editar con el JSON-SERVER  -  AXIOS ,
 
 para un mejor manejo de la memoria, usaremos la _Delegacion de eventos_ por que yo no sé cuantos botones tengo.
 
- `// yo se que el objeto que origino el evento, si es el formulario trae un input ID quiero que 
+```js
+
+ // yo se que el objeto que origino el evento, si es el formulario trae un input ID quiero que 
   //revises ese valor si es vacio, hacemos un create.
-  if (!e.target.id.value)`
+  if (!e.target.id.value)
 
-  `// con esto le estmos poniendo un ID al boton hidden.
-   $form.id.value=e.target.dataset.id`
+  // con esto le estmos poniendo un ID al boton hidden.
+   $form.id.value=e.target.dataset.id
+```
 
-    les cuento que en un proyecto donde la app  la iban a estar usando VIA web pero en ipads viejos, FETCH NO FUNCIONABA.
-     y use AXIOS  Y FUNCIONÓ BIEN sin saturarnos
+
+les cuento que en un proyecto donde la app  la iban a estar usando VIA web pero en ipads viejos, FETCH NO FUNCIONABA. y use AXIOS  Y FUNCIONÓ BIEN sin saturarnos
 
 nunca digan no a las cosas, mas bien evaluen y despues decidad 😉
 
